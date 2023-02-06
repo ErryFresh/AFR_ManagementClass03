@@ -1,0 +1,84 @@
+package LogicTier;
+
+import DataTier.AutenticazioneDAO;
+import DataTier.DipendenteDAO;
+import Entity.Dipendente;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Random;
+
+@Stateless
+@LocalBean
+public class AutenticazioneService {
+
+    private AutenticazioneDAO ad = AutenticazioneDAO.getSingle_instance();
+
+    private static String passwordGenerator(int len) {
+        String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%&";
+        Random rnd = new Random();
+        StringBuilder sb = new StringBuilder(len);
+        for (int i = 0; i < len; i++)
+            sb.append(chars.charAt(rnd.nextInt(chars.length())));
+        return sb.toString();
+    }
+
+    /**
+     *
+     * @param input password del dipendente da cifrare
+     * @return password cifrata tramita SHA-1
+     */
+    private static String cifraPassword(String input)
+    {
+        try {
+
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            byte[] messageDigest = md.digest(input.getBytes());
+            BigInteger no = new BigInteger(1, messageDigest);
+
+            String hashtext = no.toString(16);
+
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+
+            return hashtext;
+        }
+
+        catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Dipendente logIn(String psw, String eMail){
+        return logIn(cifraPassword(psw),eMail);
+    }
+
+    public void addDipendente(Dipendente d){
+        Random r = new Random();
+        boolean flag=false;
+
+        DipendenteDAO dd = DipendenteDAO.getInstance();
+
+        String matricola;
+        long mat;
+        do {
+            mat = r.nextInt() + 5000000000L;
+            matricola = String.valueOf(mat<0?mat*-1:mat);
+            try {
+                dd.ricercaIdD(matricola);
+            } catch (Exception e) {
+                flag=true;
+            }
+        }while (flag);
+
+        String psw = passwordGenerator(8);
+
+        d.setMatricola(matricola);
+        d.setPassword(cifraPassword(psw));
+        ad.addDipendente(d);
+    }
+}
