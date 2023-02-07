@@ -6,7 +6,7 @@ public class ClienteFornitore {
     private String cognome;
     private String recapito;
     private String email;
-
+    public ClienteFornitore(){}
     public ClienteFornitore(String cf, String nome, String cognome, String recapito, String email) {
         this.cf = cf;
         this.nome = nome;

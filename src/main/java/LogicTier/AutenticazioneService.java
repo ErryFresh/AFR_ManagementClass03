@@ -2,17 +2,13 @@ package LogicTier;
 
 import DataTier.AutenticazioneDAO;
 import DataTier.DipendenteDAO;
-import Entity.Dipendente;
-
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import ENTITY.Dipendente;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
-@Stateless
-@LocalBean
+
 public class AutenticazioneService {
 
     private AutenticazioneDAO ad = AutenticazioneDAO.getSingle_instance();

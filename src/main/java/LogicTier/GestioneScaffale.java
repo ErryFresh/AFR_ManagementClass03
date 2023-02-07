@@ -1,14 +1,9 @@
 package LogicTier;
 
 import DataTier.MagazzinoDAO;
-import Entity.Scaffale;
-
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import ENTITY.Scaffale;
 import java.util.List;
 
-@Stateless
-@LocalBean
 public class GestioneScaffale {
 
     public static MagazzinoDAO m = MagazzinoDAO.getInstance();

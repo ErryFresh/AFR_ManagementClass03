@@ -3,14 +3,16 @@ package ENTITY;
 import java.util.Date;
 
 public class Documento {
-    private int nDocumento;
+    private String nDocumento;
     private String tipo;
     private Date emissione;
     private String note;
     private String cf;
     private String matricola;
 
-    public Documento(int nDocumento, String tipo, Date emissione, String note, String cf, String matricola) {
+    public Documento(){}
+
+    public Documento(String nDocumento, String tipo, Date emissione, String note, String cf, String matricola) {
         this.nDocumento = nDocumento;
         this.tipo = tipo;
         this.emissione = emissione;
@@ -19,12 +21,12 @@ public class Documento {
         this.matricola = matricola;
     }
 
-    public int getnDocumento() {
+    public String getnDocumento() {
         return nDocumento;
     }
 
-    public void setnDocumento(int nDocumento) {
-        this.nDocumento = nDocumento;
+    public void setnDocumento(String nDocumento) {
+        this.nDocumento.equals(nDocumento);
     }
 
     public String getTipo() {

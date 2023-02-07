@@ -3,10 +3,10 @@ package ENTITY;
 public class Calendario {
     private String codiceCal;
     private String nome;
-    private String codiceRep;
+    private int codiceRep;
     private String matricola;
-
-    public Calendario(String codiceCal, String nome, String codiceRep, String matricola) {
+    public Calendario(){};
+    public Calendario(String codiceCal, String nome, int codiceRep, String matricola) {
         this.codiceCal = codiceCal;
         this.nome = nome;
         this.codiceRep = codiceRep;
@@ -29,11 +29,11 @@ public class Calendario {
         this.nome = nome;
     }
 
-    public String getCodiceRep() {
+    public int getCodiceRep() {
         return codiceRep;
     }
 
-    public void setCodiceRep(String codiceRep) {
+    public void setCodiceRep(int codiceRep) {
         this.codiceRep = codiceRep;
     }
 

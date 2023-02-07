@@ -11,6 +11,8 @@ public class Dipendente {
     private String posizione;
     private int codiceRep;
 
+    public Dipendente(){};
+
     public Dipendente(String cf, String nome, String cognome, String recapito, String email, String posizione, int codiceRep) {
         this.cf = cf;
         this.nome = nome;
