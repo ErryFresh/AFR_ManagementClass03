@@ -10,6 +10,7 @@ public class EventoCalendario {
     private String matricola;
     private String codiceCal;
 
+    public EventoCalendario(){};
     public EventoCalendario(String codiceEvento, String nome, String descrizione, Date data, String matricola, String codiceCal) {
         this.codiceEvento = codiceEvento;
         this.nome = nome;

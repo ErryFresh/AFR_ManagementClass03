@@ -4,17 +4,23 @@ import java.util.Date;
 
 public class Pagamento {
     private int nTransazione;
+    private String tipo;
     private String nAssegno;
     private String causale;
+    private double importo;
     private boolean saldato;
     private Date emissione;
     private Date scadenza;
     private String beneficiario;
     private String emittente;
 
-    public Pagamento(String nAssegno, String causale, boolean saldato, Date emissione, Date scadenza, String beneficiario, String emittente) {
+    public Pagamento(){};
+
+    public Pagamento(String nAssegno, String tipo,String causale, double importo, boolean saldato, Date emissione, Date scadenza, String beneficiario, String emittente) {
         this.nAssegno = nAssegno;
+        this.tipo = tipo;
         this.causale = causale;
+        this.importo = importo;
         this.saldato = saldato;
         this.emissione = emissione;
         this.scadenza = scadenza;
@@ -22,15 +28,33 @@ public class Pagamento {
         this.emittente = emittente;
     }
 
-    public Pagamento(int nTransazione, String nAssegno, String causale, boolean saldato, Date emissione, Date scadenza, String beneficiario, String emittente) {
+    public Pagamento(int nTransazione, String nAssegno, String tipo, String causale, double importo, boolean saldato, Date emissione, Date scadenza, String beneficiario, String emittente) {
         this.nTransazione = nTransazione;
         this.nAssegno = nAssegno;
+        this.tipo = tipo;
         this.causale = causale;
+        this.importo = importo;
         this.saldato = saldato;
         this.emissione = emissione;
         this.scadenza = scadenza;
         this.beneficiario = beneficiario;
         this.emittente = emittente;
+    }
+
+    public void setImporto(double importo) {
+        this.importo = importo;
+    }
+
+    public double getImporto() {
+        return importo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getTipo() {
+        return tipo;
     }
 
     public int getnTransazione() {

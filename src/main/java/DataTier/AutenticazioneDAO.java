@@ -1,30 +1,14 @@
 package DataTier;
 
-import Entity.Dipendente;
+import ENTITY.Dipendente;
+import jakarta.inject.Singleton;
 
-import javax.annotation.sql.DataSourceDefinition;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
 /**
  * Classe che permette di effettuare l'autenticazione dell'utente e inserimento all'interno del database dell'utente appena registrato
  */
 @Singleton
-@Startup
-@DataSourceDefinition(
-        className = "org.apache.derby.jdbc.EmbeddedDataSource",
-        name = "java:global/jdbc/afr_management",
-        user ="root", password = "Pisch3ll0!!MySQL",
-        databaseName = "afr_management",
-        properties = {"connectionAttribute=;create=true"}
-)
 public class AutenticazioneDAO {
-
-    @Inject
-    private EntityManager em;
 
     private static AutenticazioneDAO single_instance = null;
 

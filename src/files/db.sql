@@ -77,9 +77,9 @@ CREATE TABLE Evento(
                        descrizione TEXT NOT NULL,
                        dataEv DATE NOT NULL,
                        matricolaDip CHAR(10) NOT NULL,
-                       codiceCa CHAR(5) NOT NULL,
+                       codiceCal CHAR(5) NOT NULL,
                        FOREIGN KEY(matricolaDip) REFERENCES Dipendente(matricola),
-                       FOREIGN KEY(codiceCa) REFERENCES Calendario(codiceCal)
+                       FOREIGN KEY(codiceCal) REFERENCES Calendario(codiceCal)
 );
 
 CREATE TABLE Pagamento(

@@ -8,6 +8,7 @@ public class ProdottoDocumento {
     private double larghezza;
     private double altezza;
 
+    public ProdottoDocumento(){}
     public ProdottoDocumento(String codiceArt, String codiceDoc, int qta, double lunghezza, double larghezza, double altezza) {
         this.codiceArt = codiceArt;
         this.codiceDoc = codiceDoc;

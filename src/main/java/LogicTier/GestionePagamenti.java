@@ -1,18 +1,13 @@
 package LogicTier;
 
 import DataTier.AmministratoreDAO;
-import Entity.Pagamento;
-
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import ENTITY.Pagamento;
 import java.util.List;
 /**
  * Classe che ci permette d'interfacciare l'utente col sistema, senza dare un accesso diretto sui dati
  * delle risorse. In questo modo non sará mai l'utente a interfacciarsi direttamente con i dati persistenti
  * dei Pagamenti evitando errori che possano comprometterne la qualitá e grandendo la sicurezza dei dati.
  */
-@Stateless
-@LocalBean
 public class GestionePagamenti {
 
     public static AmministratoreDAO ad = AmministratoreDAO.getSingle_instance();
@@ -21,12 +16,12 @@ public class GestionePagamenti {
         ad.addPagamento(p);
     }
 
-    public void removePagamento(Pagamento p){
-        ad.removePagamento(p);
+    public void removePagamento(int nTransazione){
+        ad.removePagamento(nTransazione);
     }
 
-    public Pagamento updatePagamento(Pagamento p){
-        return ad.updatePagamento(p);
+    public void updatePagamento(Pagamento p){
+        ad.updatePagamento(p);
     }
 
     public Pagamento ricercaIdP(int id){

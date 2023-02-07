@@ -1,18 +1,13 @@
 package LogicTier;
 
 import DataTier.DipendenteDAO;
-import Entity.Reparto;
-
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import ENTITY.Reparto;
 import java.util.List;
 /**
  * Classe che ci permette d'interfacciare l'utente col sistema, senza dare un accesso diretto sui dati
  * delle risorse. In questo modo non sará mai l'utente a interfacciarsi direttamente con i dati persistenti
  * del Reparto evitando errori che possano comprometterne la qualitá e grandendo la sicurezza dei dati.
  */
-@Stateless
-@LocalBean
 public class GestioneReparto {
     public static DipendenteDAO dp = DipendenteDAO.getInstance();
 
@@ -20,12 +15,12 @@ public class GestioneReparto {
         dp.addReparto(r);
     }
 
-    public void removeReparto(Reparto r){
-        dp.removeReparto(r);
+    public void removeReparto(int codiceRep){
+        dp.removeReparto(codiceRep);
     }
 
-    public Reparto updateReparto(Reparto r){
-        return dp.updateReparto(r);
+    public void updateReparto(Reparto r){
+         dp.updateReparto(r);
     }
 
     public Reparto cercaIdR(int id){

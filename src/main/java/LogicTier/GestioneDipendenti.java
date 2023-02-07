@@ -1,18 +1,13 @@
 package LogicTier;
 
 import DataTier.DipendenteDAO;
-import Entity.Dipendente;
-
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import ENTITY.Dipendente;
 import java.util.List;
 /**
  * Classe che ci permette d'interfacciare l'utente col sistema, senza dare un accesso diretto sui dati
  * delle risorse. In questo modo non sará mai l'utente a interfacciarsi direttamente con i dati persistenti
  * dei Dipendenti evitando errori che possano comprometterne la qualitá e grandendo la sicurezza dei dati.
  */
-@Stateless
-@LocalBean
 public class GestioneDipendenti {
 
    public static DipendenteDAO dp = DipendenteDAO.getInstance();
@@ -21,12 +16,12 @@ public class GestioneDipendenti {
         dp.addDipendenti(d);
     }
 
-    public void removeDipendente(Dipendente d){
-        dp.removeDipendente(d);
+    public void removeDipendente(String matricola){
+        dp.removeDipendente(matricola);
     }
 
-    public Dipendente updateDipendente(Dipendente d){
-        return dp.updateDipendente(d);
+    public void updateDipendente(Dipendente d){
+        dp.updateDipendente(d);
     }
 
     public Dipendente ricercaIdD(String id){

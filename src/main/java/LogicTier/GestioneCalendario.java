@@ -1,11 +1,8 @@
 package LogicTier;
 
 import DataTier.DipendenteDAO;
-import Entity.Calendario;
-import Entity.Evento;
-
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import ENTITY.Calendario;
+import ENTITY.EventoCalendario;
 import java.util.List;
 
 /**
@@ -13,8 +10,6 @@ import java.util.List;
  * delle risorse. In questo modo non sará mai l'utente a interfacciarsi direttamente con i dati persistenti
  * del Calendario evitando errori che possano comprometterne la qualitá e grandendo la sicurezza dei dati.
  */
-@Stateless
-@LocalBean
 public class GestioneCalendario {
     public static DipendenteDAO dp = DipendenteDAO.getInstance();
 
@@ -22,12 +17,12 @@ public class GestioneCalendario {
         dp.addCalendario(c);
     }
 
-    public void removeCalendario(Calendario c){
-        dp.removeCalendario(c);
+    public void removeCalendario(String codiceCal){
+        dp.removeCalendario(codiceCal);
     }
 
-    public Calendario updateCalendario(Calendario c){
-        return dp.updateCalendario(c);
+    public void updateCalendario(Calendario c){
+        dp.updateCalendario(c);
     }
 
     public Calendario ricercaIdC(String id){
@@ -38,23 +33,23 @@ public class GestioneCalendario {
         return dp.ricercaTuttiC();
     }
 
-    public void addEvento(Evento e){
+    public void addEvento(EventoCalendario e){
         dp.addEvento(e);
     }
 
-    public void removeEvento(Evento e){
-        dp.removeEvento(e);
+    public void removeEvento(String codiceEv){
+        dp.removeEvento(codiceEv);
     }
 
-    public Evento updateEvento(Evento e){
-        return dp.updateEvento(e);
+    public void updateEvento(EventoCalendario e){
+        dp.updateEvento(e);
     }
 
-    public Evento ricercaIdE(String id){
+    public EventoCalendario ricercaIdE(String id){
         return dp.ricercaIdE(id);
     }
 
-    public List<Evento> ricercaTuttiE(){
+    public List<EventoCalendario> ricercaTuttiE(){
         return dp.ricercaTuttiE();
     }
 

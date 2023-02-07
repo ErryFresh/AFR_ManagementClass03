@@ -5,6 +5,7 @@ public class Reparto {
     private String nome;
     private String descrizione;
 
+    public Reparto(){};
     public Reparto(String nome, String descrizione) {
         this.nome = nome;
         this.descrizione = descrizione;
