@@ -10,9 +10,9 @@ public class GestioneMagazzino {
 
     public void addMagazzino(Magazzino mag){m.addMagazzino(mag);}
 
-    public void removeMagazzino(String mag){m.removeMagazzino(mag);}
+    public void removeMagazzino(int mag){m.removeMagazzino(mag);}
 
-    public Magazzino updateMagazzino(Magazzino mag){return m.updateMagazzino(mag);}
+    public void updateMagazzino(Magazzino mag){m.updateMagazzino(mag);}
 
     public Magazzino ricercaIdC(int id){return m.ricercaIdM(id);}
 

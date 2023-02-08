@@ -1,21 +1,21 @@
 package ENTITY;
 
 public class Magazzino {
-    private String codiceMagazzino;
+    private int codiceMagazzino;
     private String indirizzo;
     private int nScaffali;
-
-    public Magazzino(String codiceMagazzino, String indirizzo, int nScaffali) {
+    public Magazzino(){}
+    public Magazzino(int codiceMagazzino, String indirizzo, int nScaffali) {
         this.codiceMagazzino = codiceMagazzino;
         this.indirizzo = indirizzo;
         this.nScaffali = nScaffali;
     }
 
-    public String getCodiceMagazzino() {
+    public int getCodiceMagazzino() {
         return codiceMagazzino;
     }
 
-    public void setCodiceMagazzino(String codiceMagazzino) {
+    public void setCodiceMagazzino(int codiceMagazzino) {
         this.codiceMagazzino = codiceMagazzino;
     }
 

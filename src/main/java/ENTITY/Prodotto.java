@@ -2,17 +2,27 @@ package ENTITY;
 
 public class Prodotto {
     private String codiceArt;
+    private String nome;
     private String descrizione;
     private double prezzoAcquisto;
     private double prezzoVendita;
     private String tipologiaVendita;
-
-    public Prodotto(String codiceArt, String descrizione, double prezzoAcquisto, double prezzoVendita, String tipologiaVendita) {
+    public Prodotto(){}
+    public Prodotto(String codiceArt, String nome, String descrizione, double prezzoAcquisto, double prezzoVendita, String tipologiaVendita) {
         this.codiceArt = codiceArt;
+        this.nome = nome;
         this.descrizione = descrizione;
         this.prezzoAcquisto = prezzoAcquisto;
         this.prezzoVendita = prezzoVendita;
         this.tipologiaVendita = tipologiaVendita;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCodiceArt() {

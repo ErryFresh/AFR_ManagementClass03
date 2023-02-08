@@ -9,7 +9,7 @@ public class GestioneProdottoScaffale {
 
     public void addProdottoScaffale(ProdottoScaffale ps){m.addProdottoScaffale(ps);}
 
-    public void removeProdottoScaffale(String codiceArt,String codiceSc){m.removeProdottoScaffale(codiceArt,codiceSc);}
+    public void removeProdottoScaffale(String codiceArt,int codiceSc){m.removeProdottoScaffale(codiceArt,codiceSc);}
 
     public void updateProdottoScaffale(ProdottoScaffale ps){m.updateProdottoScaffale(ps);}
 

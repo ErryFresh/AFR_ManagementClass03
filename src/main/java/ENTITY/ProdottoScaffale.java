@@ -2,13 +2,13 @@ package ENTITY;
 
 public class ProdottoScaffale {
     private String codiceArt;
-    private String codiceScaffale;
+    private int codiceScaffale;
     private int qta;
     private double lunghezza;
     private double larghezza;
     private double altezza;
-
-    public ProdottoScaffale(String codiceArt, String codiceScaffale, int qta, double lunghezza, double larghezza, double altezza) {
+    public ProdottoScaffale(){}
+    public ProdottoScaffale(String codiceArt, int codiceScaffale, int qta, double lunghezza, double larghezza, double altezza) {
         this.codiceArt = codiceArt;
         this.codiceScaffale = codiceScaffale;
         this.qta = qta;
@@ -25,11 +25,11 @@ public class ProdottoScaffale {
         this.codiceArt = codiceArt;
     }
 
-    public String getCodiceScaffale() {
+    public int getCodiceScaffale() {
         return codiceScaffale;
     }
 
-    public void setCodiceScaffale(String codiceScaffale) {
+    public void setCodiceScaffale(int codiceScaffale) {
         this.codiceScaffale = codiceScaffale;
     }
 

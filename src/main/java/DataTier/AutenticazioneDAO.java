@@ -3,6 +3,8 @@ package DataTier;
 import ENTITY.Dipendente;
 import jakarta.inject.Singleton;
 
+import java.sql.*;
+
 
 /**
  * Classe che permette di effettuare l'autenticazione dell'utente e inserimento all'interno del database dell'utente appena registrato
@@ -41,5 +43,7 @@ public class AutenticazioneDAO {
      *
      * @param d Dipendente appena creato dal sistema con i dati parzialmente inseriti dall'utente e la password generata dal sistema;
      */
-    public void addDipendente(Dipendente d){em.persist(d);}
+    public void addDipendente(Dipendente d) {
+        DipendenteDAO.addDipendenti(d);
+    }
 }
