@@ -33,7 +33,29 @@ public class AutenticazioneDAO {
      * @return l'oggetto Dipendente corrispondente alla combinazione eMail e psw inseriti dall'utente
      */
     public Dipendente logIn(String psw, String eMail){
-    return null;
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM dipendente WHERE password = ? AND eMail = ?");
+            ps.setString(1, psw);
+            ps.setString(2, eMail);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                Dipendente d = new Dipendente();
+                d.setMatricola(rs.getString(1));
+                d.setPassword(rs.getString(2));
+                d.setCf(rs.getString(3));
+                d.setNome(rs.getString(4));
+                d.setCognome(rs.getString(5));
+                d.setRecapito(rs.getString(6));
+                d.setEmail(rs.getString(7));
+                d.setPosizione(rs.getString(8));
+                d.setCodiceRep(rs.getInt(9));
+
+                return d;
+            }
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
