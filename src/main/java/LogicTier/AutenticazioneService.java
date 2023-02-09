@@ -53,7 +53,7 @@ public class AutenticazioneService {
         return logIn(cifraPassword(psw),eMail);
     }
 
-    public void addDipendente(Dipendente d){
+    public String addDipendente(Dipendente d){
         Random r = new Random();
         boolean flag=false;
 
@@ -64,17 +64,18 @@ public class AutenticazioneService {
         do {
             mat = r.nextInt() + 5000000000L;
             matricola = String.valueOf(mat<0?mat*-1:mat);
-            try {
-                dd.ricercaIdD(matricola);
-            } catch (Exception e) {
+
+            if(dd.ricercaIdD(matricola)==null)
                 flag=true;
-            }
-        }while (flag);
+
+        }while (!flag);
 
         String psw = passwordGenerator(8);
 
         d.setMatricola(matricola);
         d.setPassword(cifraPassword(psw));
         ad.addDipendente(d);
+
+        return psw;
     }
 }
