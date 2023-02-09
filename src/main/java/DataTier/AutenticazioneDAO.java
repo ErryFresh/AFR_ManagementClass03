@@ -33,10 +33,7 @@ public class AutenticazioneDAO {
      * @return l'oggetto Dipendente corrispondente alla combinazione eMail e psw inseriti dall'utente
      */
     public Dipendente logIn(String psw, String eMail){
-        Query q =em.createQuery("SELECT d FROM Dipendente d WHERE d.eMail = :email AND d.password = :psw");
-        q.setParameter("email",eMail);
-        q.setParameter("psw",psw);
-        return (Dipendente) q.getSingleResult();
+    return null;
     }
 
     /**

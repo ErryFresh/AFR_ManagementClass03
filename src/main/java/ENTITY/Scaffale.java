@@ -62,7 +62,7 @@ public Scaffale(){}
     }
 
     public void setSurDisponibile(double surDisponibile) {
-        this.surDisponibile = surTotale;
+        this.surDisponibile = surDisponibile;
     }
 
     @Override
