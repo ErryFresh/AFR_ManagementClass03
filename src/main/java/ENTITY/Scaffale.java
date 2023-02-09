@@ -1,27 +1,27 @@
 package ENTITY;
 
 public class Scaffale {
-    private String codiceScaffale;
+    private int codiceScaffale;
     private String nome;
     private String descrizione;
-    private String codiceMagazzino;
+    private int codiceMagazzino;
     private double surOccupata;
-    private double surTotale;
-
-    public Scaffale(String codiceScaffale, String nome, String descrizione, String codiceMagazzino, double surOccupata, double surTotale) {
+    private double surDisponibile;
+public Scaffale(){}
+    public Scaffale(int codiceScaffale, String nome, String descrizione, int codiceMagazzino, double surOccupata, double surDisponibile) {
         this.codiceScaffale = codiceScaffale;
         this.nome = nome;
         this.descrizione = descrizione;
         this.codiceMagazzino = codiceMagazzino;
         this.surOccupata = surOccupata;
-        this.surTotale = surTotale;
+        this.surDisponibile = surDisponibile;
     }
 
-    public String getCodiceScaffale() {
+    public int getCodiceScaffale() {
         return codiceScaffale;
     }
 
-    public void setCodiceScaffale(String codiceScaffale) {
+    public void setCodiceScaffale(int codiceScaffale) {
         this.codiceScaffale = codiceScaffale;
     }
 
@@ -41,11 +41,11 @@ public class Scaffale {
         this.descrizione = descrizione;
     }
 
-    public String getCodiceMagazzino() {
+    public int getCodiceMagazzino() {
         return codiceMagazzino;
     }
 
-    public void setCodiceMagazzino(String codiceMagazzino) {
+    public void setCodiceMagazzino(int codiceMagazzino) {
         this.codiceMagazzino = codiceMagazzino;
     }
 
@@ -57,12 +57,12 @@ public class Scaffale {
         this.surOccupata = surOccupata;
     }
 
-    public double getSurTotale() {
-        return surTotale;
+    public double getSurDisponibile() {
+        return surDisponibile;
     }
 
-    public void setSurTotale(double surTotale) {
-        this.surTotale = surTotale;
+    public void setSurDisponibile(double surDisponibile) {
+        this.surDisponibile = surDisponibile;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Scaffale {
                 ", descrizione='" + descrizione + '\'' +
                 ", codiceMagazzino='" + codiceMagazzino + '\'' +
                 ", surOccupata=" + surOccupata +
-                ", surTotale=" + surTotale +
+                ", surTotale=" + surDisponibile +
                 '}';
     }
 }

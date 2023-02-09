@@ -3,6 +3,8 @@ package DataTier;
 import ENTITY.Dipendente;
 import jakarta.inject.Singleton;
 
+import java.sql.*;
+
 
 /**
  * Classe che permette di effettuare l'autenticazione dell'utente e inserimento all'interno del database dell'utente appena registrato
@@ -31,15 +33,14 @@ public class AutenticazioneDAO {
      * @return l'oggetto Dipendente corrispondente alla combinazione eMail e psw inseriti dall'utente
      */
     public Dipendente logIn(String psw, String eMail){
-        Query q =em.createQuery("SELECT d FROM Dipendente d WHERE d.eMail = :email AND d.password = :psw");
-        q.setParameter("email",eMail);
-        q.setParameter("psw",psw);
-        return (Dipendente) q.getSingleResult();
+    return null;
     }
 
     /**
      *
      * @param d Dipendente appena creato dal sistema con i dati parzialmente inseriti dall'utente e la password generata dal sistema;
      */
-    public void addDipendente(Dipendente d){em.persist(d);}
+    public void addDipendente(Dipendente d) {
+        DipendenteDAO.addDipendenti(d);
+    }
 }

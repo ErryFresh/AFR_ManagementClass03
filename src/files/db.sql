@@ -35,6 +35,7 @@ CREATE TABLE ProdottoScaffale(
                                  codiceSc INT,
                                  quantita INT NOT NULL,
                                  lunghezza DOUBLE NOT NULL,
+                                 larghezza DOUBLE NOT NULL,
                                  altezza DOUBLE NOT NULL,
                                  PRIMARY KEY(codiceArt,codiceSc)
 );
