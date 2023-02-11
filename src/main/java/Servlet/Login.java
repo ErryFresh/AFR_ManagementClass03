@@ -4,6 +4,7 @@ import DataTier.AutenticazioneDAO;
 import DataTier.DipendenteDAO;
 import ENTITY.Dipendente;
 import ENTITY.Reparto;
+import LogicTier.AutenticazioneService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -23,13 +24,16 @@ public class Login extends HttpServlet {
         synchronized (session){
             String usr = request.getParameter("usr");
             String psw = request.getParameter("psw");
-            String address = "/index.jsp"; //da cambiare con la destinazione
+            String address = "/home.jsp";
 
-            Dipendente connected = AutenticazioneDAO.getSingle_instance().logIn(psw,usr);
+            AutenticazioneService as = new AutenticazioneService();
+
+            Dipendente connected = as.logIn(psw,usr);
 
             if(connected == null){
                 request.setAttribute("sconosciuto", usr);
                 request.setAttribute("msg", true);
+                address = "/index.jsp";
             }else{
                 session.setAttribute("dipendente", connected);
             }

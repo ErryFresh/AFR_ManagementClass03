@@ -50,7 +50,7 @@ public class AutenticazioneService {
     }
 
     public Dipendente logIn(String psw, String eMail){
-        return logIn(cifraPassword(psw),eMail);
+        return AutenticazioneDAO.getSingle_instance().logIn(cifraPassword(psw),eMail);
     }
 
     public String addDipendente(Dipendente d){
