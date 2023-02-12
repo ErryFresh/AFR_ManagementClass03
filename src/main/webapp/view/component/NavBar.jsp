@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="Documenti">
                     <i class='bx bxs-file-doc icon' ></i>
                     <span class="text nav-text">Documenti</span>
                 </a>
@@ -60,7 +60,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="Magazzino">
                     <i class='bx bxs-component icon'></i>
                     <span class="text nav-text">Magazzino</span>
                 </a>
