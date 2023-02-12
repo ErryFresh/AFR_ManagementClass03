@@ -318,7 +318,7 @@ public class MagazzinoDAO {
                 s.setDescrizione(rs.getString(3));
                 s.setSurOccupata(rs.getDouble(4));
                 s.setSurDisponibile(rs.getDouble(5));
-                s.setCodiceMagazzino(6);
+                s.setCodiceMagazzino(rs.getInt(6));
                 return s;
             }
             return null;
@@ -406,7 +406,7 @@ public class MagazzinoDAO {
             PreparedStatement ps = con.prepareStatement("SELECT codiceSc FROM scaffale");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                list.add(MagazzinoDAO.ricercaIdS(rs.getInt(1)));
+                list.add(ricercaIdS(rs.getInt(1)));
             }
             return list;
         } catch (SQLException e) {

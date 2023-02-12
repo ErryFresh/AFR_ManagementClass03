@@ -31,13 +31,13 @@ CREATE TABLE Prodotto(
 );
 
 CREATE TABLE ProdottoScaffale(
+                                codProdScaf INT AUTO_INCREMENT PRIMARY KEY,
                                  codiceArt CHAR(8),
                                  codiceSc INT,
                                  quantita INT NOT NULL,
                                  lunghezza DOUBLE NOT NULL,
                                  larghezza DOUBLE NOT NULL,
-                                 altezza DOUBLE NOT NULL,
-                                 PRIMARY KEY(codiceArt,codiceSc)
+                                 altezza DOUBLE NOT NULL
 );
 
 CREATE TABLE Magazzino(
@@ -108,13 +108,13 @@ CREATE TABLE Documento(
 );
 
 CREATE TABLE ProdottoDocumento(
+                                  codProdDoc INT AUTO_INCREMENT PRIMARY KEY,
                                   codiceArt CHAR(8) NOT NULL,
                                   codiceDoc CHAR(11) NOT NULL,
                                   quantita INT NOT NULL,
                                   lunghezza DOUBLE NOT NULL,
                                   larghezza DOUBLE NOT NULL,
-                                  altezza DOUBLE NOT NULL,
-                                  PRIMARY KEY(codiceArt,codiceDoc)
+                                  altezza DOUBLE NOT NULL
 );
 
 insert into Reparto values(1,"amminsitrazione","prova");

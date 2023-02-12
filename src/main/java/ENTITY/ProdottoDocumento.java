@@ -8,6 +8,8 @@ public class ProdottoDocumento {
     private double larghezza;
     private double altezza;
 
+    private int prodottoDoc;
+
     public ProdottoDocumento(){}
     public ProdottoDocumento(String codiceArt, String codiceDoc, int qta, double lunghezza, double larghezza, double altezza) {
         this.codiceArt = codiceArt;
@@ -17,6 +19,20 @@ public class ProdottoDocumento {
         this.larghezza = larghezza;
         this.altezza = altezza;
     }
+
+    public ProdottoDocumento(int prodottoDoc,String codiceArt, String codiceDoc, int qta, double lunghezza, double larghezza, double altezza) {
+        this.codiceArt = codiceArt;
+        this.codiceDoc = codiceDoc;
+        this.qta = qta;
+        this.lunghezza = lunghezza;
+        this.larghezza = larghezza;
+        this.altezza = altezza;
+        this.prodottoDoc = prodottoDoc;
+    }
+
+    public int getProdottoDoc() {return prodottoDoc;}
+
+    public void setProdottoDoc(int prodottoDoc) {this.prodottoDoc = prodottoDoc;}
 
     public String getCodiceArt() {
         return codiceArt;
@@ -69,7 +85,8 @@ public class ProdottoDocumento {
     @Override
     public String toString() {
         return "ProdottoDocumento{" +
-                "codiceArt='" + codiceArt + '\'' +
+                " prodottoDoc=" + prodottoDoc +
+                ", codiceArt='" + codiceArt + '\'' +
                 ", codiceDoc='" + codiceDoc + '\'' +
                 ", qta=" + qta +
                 ", lunghezza=" + lunghezza +

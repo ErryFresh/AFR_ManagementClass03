@@ -1,6 +1,8 @@
 package ENTITY;
 
 public class ProdottoScaffale {
+
+    private int prodottoScaf;
     private String codiceArt;
     private int codiceScaffale;
     private int qta;
@@ -15,6 +17,24 @@ public class ProdottoScaffale {
         this.lunghezza = lunghezza;
         this.larghezza = larghezza;
         this.altezza = altezza;
+    }
+
+    public ProdottoScaffale(int prodottoScaf, String codiceArt, int codiceScaffale, int qta, double lunghezza, double larghezza, double altezza) {
+        this.prodottoScaf = prodottoScaf;
+        this.codiceArt = codiceArt;
+        this.codiceScaffale = codiceScaffale;
+        this.qta = qta;
+        this.lunghezza = lunghezza;
+        this.larghezza = larghezza;
+        this.altezza = altezza;
+    }
+
+    public int getProdottoScaf() {
+        return prodottoScaf;
+    }
+
+    public void setProdottoScaf(int prodottoScaf) {
+        this.prodottoScaf = prodottoScaf;
     }
 
     public String getCodiceArt() {
@@ -68,8 +88,9 @@ public class ProdottoScaffale {
     @Override
     public String toString() {
         return "ProdottoScaffale{" +
-                "codiceArt='" + codiceArt + '\'' +
-                ", codiceScaffale='" + codiceScaffale + '\'' +
+                "prodottoScaf=" + prodottoScaf +
+                ", codiceArt='" + codiceArt + '\'' +
+                ", codiceScaffale=" + codiceScaffale +
                 ", qta=" + qta +
                 ", lunghezza=" + lunghezza +
                 ", larghezza=" + larghezza +

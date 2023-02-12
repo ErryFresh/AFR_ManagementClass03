@@ -25,9 +25,7 @@ public class Documento {
         return nDocumento;
     }
 
-    public void setnDocumento(String nDocumento) {
-        this.nDocumento.equals(nDocumento);
-    }
+    public void setnDocumento(String nDocumento) {this.nDocumento=nDocumento;}
 
     public String getTipo() {
         return tipo;
