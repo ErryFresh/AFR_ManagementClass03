@@ -48,13 +48,15 @@
                 </a>
             </li>
             <li class="nav-link">
+
                 <a href="Documenti">
+
                     <i class='bx bxs-file-doc icon' ></i>
                     <span class="text nav-text">Documenti</span>
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="<%= request.getContextPath()%>">
                     <i class='bx bxs-badge-dollar icon' ></i>
                     <span class="text nav-text">Pagamenti</span>
                 </a>
@@ -76,9 +78,15 @@
 
         <div class="bottom-content">
             <li class="">
+                <a href="<%= request.getContextPath()%>/contactUs.jsp">
+                    <i class='bx bxs-help-circle icon'></i>
+                    <span class="text nav-text">Help</span>
+                </a>
+            </li>
+            <li class="">
                 <a href="<%= request.getContextPath()%>/index.jsp">
-                    <i class='bx bx-log-out icon' ></i>
-                    <span class="text nav-text" >Logout</span>
+                    <i class='bx bx-log-out icon'></i>
+                    <span class="text nav-text">Logout</span>
                 </a>
             </li>
         </div>

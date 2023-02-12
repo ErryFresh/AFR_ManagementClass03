@@ -13,5 +13,7 @@
 </head>
 <body>
   <%@include file="/view/component/NavBar.jsp"%>
+
+</section>
 </body>
 </html>
