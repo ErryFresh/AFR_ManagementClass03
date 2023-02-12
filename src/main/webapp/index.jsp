@@ -44,7 +44,7 @@
                         <p class="error">USERNAME o PASSWORD non validi!</p>
                         <% }%>
                         <div class="remember">
-                            <a href="#">Password dimenticata?</a>
+                            <a href="<%= request.getContextPath()%>/contactUs.jsp">Password dimenticata?</a>
                         </div>
                     </div>
                 </form>
