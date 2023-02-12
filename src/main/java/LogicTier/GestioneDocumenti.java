@@ -12,6 +12,8 @@ import java.util.List;
  */
 public class GestioneDocumenti {
 
+    public GestioneDocumenti() {}
+
     public static AmministratoreDAO ad = AmministratoreDAO.getSingle_instance();
 
     public void addDocumento(Documento d){
@@ -32,4 +34,5 @@ public class GestioneDocumenti {
     public List<Documento> ricercaTuttiD(){
         return ad.ricercaTuttiDo();
     }
+
 }

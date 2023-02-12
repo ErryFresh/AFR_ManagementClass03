@@ -2,9 +2,13 @@ package LogicTier;
 
 import DataTier.MagazzinoDAO;
 import ENTITY.Magazzino;
+import ENTITY.Scaffale;
+
 import java.util.List;
 
 public class GestioneMagazzino {
+
+    public GestioneMagazzino(){}
 
     public static MagazzinoDAO m = MagazzinoDAO.getInstance();
 
@@ -18,4 +22,5 @@ public class GestioneMagazzino {
 
     public List<Magazzino> ricercaTuttiM(){return m.ricercaTuttiM();}
 
+    public List<Scaffale> ricercaTuttiS(){return m.ricercaTuttiS();}
 }

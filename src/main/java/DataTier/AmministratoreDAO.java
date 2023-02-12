@@ -319,12 +319,12 @@ public class AmministratoreDAO {
      */
     public static Documento ricercaIdD(String id){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM documento WHERE nTransazione = ?");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM documento WHERE nDocumento = ?");
             ps.setString(1,id);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 Documento d = new Documento();
-                d.setnDocumento(rs.getString(1));
+                d.setnDocumento(id);
                 d.setTipo(rs.getString(2));
                 d.setEmissione(rs.getDate(3));
                 d.setNote(rs.getString(4));
