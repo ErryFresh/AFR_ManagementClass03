@@ -11,7 +11,6 @@
     <title>AFR_Management</title>
     <%@include file="view/component/Head.html"%>
     <link rel="stylesheet" href="view/css/login.css">
-
 </head>
 <body>
  <div class="wrapper">

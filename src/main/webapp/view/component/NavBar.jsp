@@ -1,4 +1,4 @@
-<%--
+<%@ page import="ENTITY.Dipendente" %><%--
   Created by IntelliJ IDEA.
   User: Errico
   Date: 08/02/2023
@@ -10,6 +10,8 @@
 <head>
     <%@include file="Head.html"%>
     <link rel="stylesheet" href="view/css/navbar.css">
+
+    <%Dipendente connected = (Dipendente) session.getAttribute("dipendente");%>
 </head>
 <body>
 <nav class="sidebar close">
@@ -20,8 +22,8 @@
                 </span>
 
             <div class="text header-text">
-                <span class="name">Angelo Nazzaro</span>
-                <span class="profession">Panettiere</span>
+                <span class="name"><%=connected.getNome() +" "+ connected.getCognome()%></span>
+                <span class="profession"><%=connected.getPosizione()%></span>
             </div>
         </div>
 

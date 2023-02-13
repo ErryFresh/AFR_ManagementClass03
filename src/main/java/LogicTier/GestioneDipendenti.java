@@ -10,7 +10,10 @@ import java.util.List;
  */
 public class GestioneDipendenti {
 
-   public static DipendenteDAO dp = DipendenteDAO.getInstance();
+    public GestioneDipendenti() {
+    }
+
+    public static DipendenteDAO dp = DipendenteDAO.getInstance();
 
     public void addDipendente(Dipendente d){
         dp.addDipendenti(d);

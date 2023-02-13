@@ -6,12 +6,12 @@ public class EventoCalendario {
     private String codiceEvento;
     private String nome;
     private String descrizione;
-    private Date data;
+    private String data;
     private String matricola;
     private String codiceCal;
 
     public EventoCalendario(){};
-    public EventoCalendario(String codiceEvento, String nome, String descrizione, Date data, String matricola, String codiceCal) {
+    public EventoCalendario(String codiceEvento, String nome, String descrizione, String data, String matricola, String codiceCal) {
         this.codiceEvento = codiceEvento;
         this.nome = nome;
         this.descrizione = descrizione;
@@ -44,11 +44,11 @@ public class EventoCalendario {
         this.descrizione = descrizione;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
