@@ -3,6 +3,9 @@ package LogicTier;
 import DataTier.DipendenteDAO;
 import ENTITY.Calendario;
 import ENTITY.EventoCalendario;
+
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,6 +14,9 @@ import java.util.List;
  * del Calendario evitando errori che possano comprometterne la qualitá e grandendo la sicurezza dei dati.
  */
 public class GestioneCalendario {
+
+    public GestioneCalendario() {
+    }
     public static DipendenteDAO dp = DipendenteDAO.getInstance();
 
     public void addCalendario(Calendario c){
@@ -28,6 +34,8 @@ public class GestioneCalendario {
     public Calendario ricercaIdC(String id){
         return dp.ricercaIdC(id);
     }
+
+    public Calendario ricercaRepC(int id){return dp.ricercaRepC(id);}
 
     public List<Calendario> ricercaTuttiC(){
         return dp.ricercaTuttiC();
@@ -51,6 +59,24 @@ public class GestioneCalendario {
 
     public List<EventoCalendario> ricercaTuttiE(){
         return dp.ricercaTuttiE();
+    }
+
+    public List<EventoCalendario> ricercaTuttiE(Date bound, String codiceCal){
+        List<EventoCalendario> list = ricercaTuttiE();
+        List<EventoCalendario> tmp = new ArrayList<EventoCalendario>();
+
+        int mese = bound.getMonth()+1;
+        int year = bound.getYear()+1900;
+
+        for(EventoCalendario e : list){
+            int meseE= Integer.parseInt(e.getData().split("-")[1]);
+            int annoE= Integer.parseInt(e.getData().split("-")[0]);
+
+            if(e.getCodiceCal().equals(codiceCal))
+                if(meseE==mese && annoE==year)
+                    tmp.add(e);
+        }
+        return tmp;
     }
 
 }

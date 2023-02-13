@@ -219,7 +219,7 @@ public class DipendenteDAO {
             ps.setString(1,e.getCodiceEvento());
             ps.setString(2,e.getNome());
             ps.setString(3,e.getDescrizione());
-            ps.setDate(4, (Date) e.getData());
+            ps.setString(4, (String) e.getData());
             ps.setString(5,e.getMatricola());
             ps.setString(6,e.getCodiceCal());
             if (ps.executeUpdate() != 1) {
@@ -255,7 +255,7 @@ public class DipendenteDAO {
             PreparedStatement ps = con.prepareStatement("UPDATE evento SET nome = ?,descrizione = ?,dataEv = ?,matricolaDip = ?,codiceCal = ? WHERE codiceEv = ? ");
             ps.setString(1,e.getNome());
             ps.setString(2,e.getDescrizione());
-            ps.setDate(3, (Date) e.getData());
+            ps.setString(3, (String) e.getData());
             ps.setString(4,e.getMatricola());
             ps.setString(5,e.getCodiceCal());
             ps.setString(6,e.getCodiceEvento());
@@ -393,7 +393,7 @@ public class DipendenteDAO {
                 e.setCodiceEvento(rs.getString(1));
                 e.setNome(rs.getString(2));
                 e.setDescrizione(rs.getString(3));
-                e.setData(rs.getDate(4));
+                e.setData(rs.getString(4));
                 e.setMatricola(rs.getString(5));
                 e.setCodiceCal(rs.getString(6));
 
@@ -473,6 +473,31 @@ public class DipendenteDAO {
                 list.add(DipendenteDAO.ricercaIdE(rs.getString(1)));
             }
             return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Metodo per ricavare il calendario a partire dal reparto
+     * @param id riferito al reparto da utilizzare per la ricerca
+     * @return calendario relativo al reparto
+     */
+    public Calendario ricercaRepC(int id) {
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM calendario WHERE codiceRep = ?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Calendario c = new Calendario();
+                c.setCodiceCal(rs.getString(1));
+                c.setNome(rs.getString(2));
+                c.setCodiceRep(rs.getInt(3));
+                c.setMatricola(rs.getString(4));
+
+                return c;
+            }
+            return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
