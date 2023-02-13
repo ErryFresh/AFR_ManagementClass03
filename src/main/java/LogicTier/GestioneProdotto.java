@@ -3,6 +3,7 @@ package LogicTier;
 import DataTier.MagazzinoDAO;
 import ENTITY.Prodotto;
 import java.util.List;
+import java.util.Random;
 
 public class GestioneProdotto {
 
@@ -18,4 +19,13 @@ public class GestioneProdotto {
 
     public List<Prodotto> ricercaTuttiP(){return m.ricercaTuttiP();}
 
+    public String generaChiaveProdotto(){
+        Random rnd = new Random();
+        StringBuilder sb = new StringBuilder(8);
+        sb.append('P');
+        sb.append('R');
+        for (int i = 2; i < 8; i++)
+            sb.append(rnd.nextInt(10));
+        return sb.toString();
+    }
 }

@@ -119,3 +119,10 @@ CREATE TABLE ProdottoDocumento(
 
 insert into Reparto values(1,"amminsitrazione","prova");
 insert into Dipendente values("0000000001","6279886fde090b3038f267098bcca771a6efa946","1234567890123456","Tizio","Brutto","1234567890","a@b.it","Capo dei Capi",1);
+insert into Magazzino values(1,"Via non lo devi sapere 55",3);
+insert into Scaffale values(1,"Prova","Su questo scaffale troveremo oggetti che vengono usati nell'ambito dell'informatica",5,50,1),
+                           (2,"Plastica","Su questo scaffale saranno presenti tutti gli oggetti in plastica",0,100,1);
+insert into ClienteFornitore values("AAAAAAAAAAAAAAAA","Gino","Pasticcio","3248545998","gino@gmail.com"),
+                                   ("BBBBBBBBBBBBBBBB","Luko","ConLaK","3297845698","luko@gmail.com");
+insert into Documento values("DA01","Documento d'acquisto","2023-02-11","Acquisto relativo al toner","AAAAAAAAAAAAAAAA","0000000001"),
+                            ("DDT01","Documento di trasporto","2023-02-11","Documento che fa riferimento al trasporto di nuove apparecchiature","BBBBBBBBBBBBBBBB","0000000001");

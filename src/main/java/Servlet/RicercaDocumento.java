@@ -17,15 +17,16 @@ public class RicercaDocumento extends HttpServlet {
         String nome = request.getParameter("search");
         GestioneDocumenti gd = new GestioneDocumenti();
         Documento d = gd.ricercaIdD(nome);
+        String address = "";
         if(d!=null) {
             request.setAttribute("DocumentoTrovato", d);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Documenti.jsp");
-            dispatcher.forward(request, response);
+            address="/Documenti.jsp";
         }
         else{
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Documenti");
-            dispatcher.forward(request, response);
+            address="/Documenti";
         }
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(address);
+        dispatcher.forward(request, response);
     }
 
     @Override
