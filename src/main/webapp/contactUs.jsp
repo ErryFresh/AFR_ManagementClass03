@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.mysql.cj.Session" %><%--
   Created by IntelliJ IDEA.
   User: Errico
   Date: 12/02/2023
@@ -11,10 +11,13 @@
     <title>Help</title>
     <%@include file="view/component/Head.html"%>
     <link rel="stylesheet" href="view/css/contactUs.css">
+    <%Dipendente connectedContact = (Dipendente) session.getAttribute("dipendente");%>
 </head>
 <body>
+<%if(connectedContact!=null){%>
 <!--se é loggato esce la navbar-->
-<!--<%@include file="view/component/NavBar.jsp"%>-->
+    <%@include file="view/component/NavBar.jsp"%>
+<%}%>
 <section class="home">
   <div class="container">
       <div class=" text contact-box">

@@ -11,13 +11,12 @@
   <title>Aggiungi Evento</title>
   <%@include file="view/component/Head.html"%>
 
-  <% Calendario c = (Calendario) request.getAttribute("cal");
-  %>
+  <% Calendario c = (Calendario) request.getAttribute("cal");%>
 </head>
 <body>
-
-<section class="vh-100 home" style="background: linear-gradient(to right,#1F1F1F,#787878);">
-  <div class="container-fluid py-5 h-100 text">
+<%@include file="view/component/NavBar.jsp"%>
+<section class="vh-100 home" style="background: linear-gradient(to right,#1F1F1F,#787878)">
+  <div class="container  justify-content-center align-items-center  py-5 h-100 text">
     <div class="row  justify-content-center align-items-center h-100">
       <div class="col col-lg-6 mb-4 mb-lg-0">
         <div class="card mb-3" style="border-radius: .5rem;">
@@ -28,21 +27,20 @@
               </div>
               <div class="row pt-1">
 
-                <div class="col-3 mb-3">
+                <div class="col-5 mb-5">
                   <h3>Data Evento</h3>
                   <input type="date" name="dataEv" id="date" class="form-control-lg">
-                  
                 </div>
-
-
+                <div class="col-5 mb-5">
+                  <h3>Nome</h3>
+                  <input type="text" name="nome" id="titolo" class="form-control-lg">
+                </div>
               </div>
-              <div class="col">
-                <h2 style="text-align: center">Nome</h2>
-                <input type="text" name="nome" id="titolo" class="form-control-lg">
-                <h3 style="text-align: center">Descrizione</h3>
-                <textarea class="form-control" name="desc" aria-label="With textarea"></textarea>
 
-                <p>Nome Calendario <%=c.getNome()%></p>
+
+              <div class="col">
+                <h3 style="text-align: center">Descrizione</h3>
+                <textarea class="form-control" name="desc"  maxlength="400"></textarea>
                 <input type="hidden" name="code" value="<%=c.getCodiceCal()%>">
               </div>
 

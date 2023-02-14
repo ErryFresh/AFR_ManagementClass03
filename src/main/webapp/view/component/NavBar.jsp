@@ -70,7 +70,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="<%= request.getContextPath()%>/clienteFornitore">
                     <i class='bx bxs-user icon' ></i>
                     <span class="text nav-text">Clienti</span>
                 </a>

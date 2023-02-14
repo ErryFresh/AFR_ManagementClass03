@@ -123,24 +123,22 @@
     </style>
 
 </head>
-<body>
+<body style="background: linear-gradient(to right,#1F1F1F,#787878);" >
 <%@include file="/view/component/NavBar.jsp"%>
-
 <section class="home">
-    <div class="text">
-        <div class="jumbotron" style="background: linear-gradient(to right,#FF5418,#F9D213)">
+        <div class="jumbotron-" style="background: linear-gradient(to right,#FF5418,#F9D213)">
             <div class="container text-center">
-                <h1>Benvenuto!</h1>
-                <p>Rendi anche oggi un giorno migliore!</p>
+                <h1 style="color:black">Benvenuto!</h1>
+                <h2 style="color:black">Rendi anche oggi un giorno migliore!</h2>
             </div>
         </div>
 
-        <div class="container-fluid bg-3 text-center">
-            <h3>Overview</h3><br>
+        <div class="container bg-3 text-center">
+            <h1 style="color:white">Overview</h1><br>
             <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <table>
-                    <tr><th colspan="7">CALENDARIO</th></tr>
+                    <tr><th colspan="7" >CALENDARIO</th></tr>
                     <tr>
                 <%
                     List<EventoCalendario> list = (List<EventoCalendario>) request.getAttribute("eventi");
@@ -170,25 +168,25 @@
                 </table>
             </div>
             <div class="col-md-6">
-                <p>Grafico 1</p>
+                <p style="color:white">Grafico 1</p>
                 <div class="charts" id="piechart"></div>
             </div>
         </div>
         </div><br>
 
-        <div class="container-fluid bg-4 text-center ">
+        <div class="container-fluid bg-3 text-center ">
             <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <p>Grafico 2</p>
+                <div class="col-md-5">
+                    <p style="color:white">Grafico 2</p>
                     <div class="charts" id="columnchart_values"></div>
                 </div>
                 <div class="col-md-6">
-                    <p>Grafico 3</p>
+                    <p style="color:white">Grafico 3</p>
                     <div class="charts" id="chart_div"></div>
                 </div>
             </div>
         </div>
-    </div>
+
 </section>
 
 <script>

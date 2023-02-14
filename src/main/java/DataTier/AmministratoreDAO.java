@@ -373,7 +373,7 @@ public class AmministratoreDAO {
      */
     public static ClienteFornitore ricercaIdCf(String id){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM pagamento WHERE cf = ?");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM clientefornitore WHERE cf = ?");
             ps.setString(1,id);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
