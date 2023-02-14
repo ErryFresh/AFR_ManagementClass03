@@ -18,6 +18,7 @@ table, th, td {
 }
 
 .divRicerca{
+    justify-content: center;
     background-color: white;
     border: none;
     width: 400px;
@@ -27,7 +28,6 @@ table, th, td {
 }
 
 .divBottoni{
-    margin-top: 150px;
     margin-left: 500px;
 }
 
@@ -100,9 +100,6 @@ form.example::after {
     border: 1px solid black;
 }
 
-.home .text{
-    padding: 8px 40px;
-}
 
 .Valore{
     background: none;

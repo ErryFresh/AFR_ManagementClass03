@@ -11,6 +11,7 @@
     <title>Info utente</title>
     <%@include file="view/component/Head.html"%>
     <link rel="stylesheet" href="view/css/info.css">
+    <%Dipendente connectedContact = (Dipendente) session.getAttribute("dipendente");%>
 </head>
 <body>
 <%@include file="view/component/NavBar.jsp"%>
@@ -24,9 +25,9 @@
                  style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
               <img src="view/css/img/angelo.jpg"
                    alt="Avatar" class="img-fluid my-5" style="width: 80px;border-radius: 50%" />
-              <h5>Angelo</h5>
-              <h5>Nazzaro</h5>
-              <i class="far fa-edit mb-5"></i>
+
+              <h5><%=connectedContact.getNome()%></h5>
+              <h5><%=connectedContact.getCognome()%></h5>
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">
@@ -35,11 +36,11 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <h6>Matricola</h6>
-                    <p class="text-muted">49589345</p>
+                    <p class="text-muted"><%=connectedContact.getMatricola()%></p>
                   </div>
                   <div class="col-6 mb-3">
                     <h6>Reparto</h6>
-                    <p class="text-muted">Panettiere</p>
+                    <p class="text-muted"><%=connectedContact.getCodiceRep()%></p>
                   </div>
                 </div>
                 <h6>Contatti</h6>
@@ -47,17 +48,12 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <h6>Email</h6>
-                    <p class="text-muted">nazzaro@panificioAmore.it</p>
+                    <p class="text-muted"><%=connectedContact.getEmail()%></p>
                   </div>
                   <div class="col-6 mb-3">
                     <h6>Recapito</h6>
-                    <p class="text-muted">+39 3711780696</p>
+                    <p class="text-muted"><%=connectedContact.getRecapito()%></p>
                   </div>
-                </div>
-                <div class="d-flex justify-content-start">
-                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
-                  <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                  <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
                 </div>
               </div>
             </div>
