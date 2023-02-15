@@ -101,24 +101,26 @@ public class AmministratoreDAO {
      *Il metodo ci permette di aggiungere un documento al database
      * @param d Documento da aggiungere nel database
      */
-    public static void addDocumento(Documento d){
+    public boolean addDocumento(Documento d){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
                     "INSERT INTO documento (nDocumento,tipo,dataEmissione,note,cf,matricola) VALUES(?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, d.getnDocumento());
             ps.setString(2,d.getTipo());
-            ps.setDate(3, (Date) d.getEmissione());
+            ps.setString(3, d.getEmissione());
             ps.setString(4,d.getNote());
             ps.setString(5,d.getCf());
             ps.setString(6,d.getMatricola());
             if (ps.executeUpdate() != 1) {
-                throw new RuntimeException("INSERT error.");
+                return false;
             }
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
+
         } catch (SQLException e){
-            throw new RuntimeException(e);
+           return false;
         }
+        return true;
     }
 
     /**
@@ -147,7 +149,7 @@ public class AmministratoreDAO {
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("UPDATE documento SET tipo = ?,dataEmissione = ?,note = ?,cf = ?,matricola = ? WHERE nDocumento = ?");
             ps.setString(1,d.getTipo());
-            ps.setDate(2, (Date) d.getEmissione());
+            ps.setString(2, d.getEmissione());
             ps.setString(3,d.getNote());
             ps.setString(4,d.getCf());
             ps.setString(5,d.getMatricola());
@@ -326,7 +328,7 @@ public class AmministratoreDAO {
                 Documento d = new Documento();
                 d.setnDocumento(id);
                 d.setTipo(rs.getString(2));
-                d.setEmissione(rs.getDate(3));
+                d.setEmissione(rs.getString(3));
                 d.setNote(rs.getString(4));
                 d.setCf(rs.getString(5));
                 d.setMatricola(rs.getString(6));

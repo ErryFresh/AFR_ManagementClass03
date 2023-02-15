@@ -16,8 +16,8 @@ public class GestioneDocumenti {
 
     public static AmministratoreDAO ad = AmministratoreDAO.getSingle_instance();
 
-    public void addDocumento(Documento d){
-        ad.addDocumento(d);
+    public boolean addDocumento(Documento d){
+        return ad.addDocumento(d);
     }
 
     public void removeDocumento(String d){

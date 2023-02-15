@@ -1,18 +1,19 @@
 package ENTITY;
 
 import java.util.Date;
+import java.util.List;
 
 public class Documento {
     private String nDocumento;
     private String tipo;
-    private Date emissione;
+    private String emissione;
     private String note;
     private String cf;
     private String matricola;
 
     public Documento(){}
 
-    public Documento(String nDocumento, String tipo, Date emissione, String note, String cf, String matricola) {
+    public Documento(String nDocumento, String tipo, String emissione, String note, String cf, String matricola) {
         this.nDocumento = nDocumento;
         this.tipo = tipo;
         this.emissione = emissione;
@@ -35,11 +36,11 @@ public class Documento {
         this.tipo = tipo;
     }
 
-    public Date getEmissione() {
+    public String getEmissione() {
         return emissione;
     }
 
-    public void setEmissione(Date emissione) {
+    public void setEmissione(String emissione) {
         this.emissione = emissione;
     }
 
