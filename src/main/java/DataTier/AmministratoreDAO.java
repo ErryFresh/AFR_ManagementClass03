@@ -227,23 +227,24 @@ public class AmministratoreDAO {
      *Il metodo aggiunge un istanza ClienteFornitore nel database
      * @param cf ClienteFornitore da aggiungere nel database
      */
-    public static void addClienteFornitore(ClienteFornitore cf){
+    public boolean addClienteFornitore(ClienteFornitore cf){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
-                    "INSERT INTO ClienteFornitore (cf,nome,cognome,recapito,eMail) VALUES(?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+                    "INSERT INTO ClienteFornitore (cf,nome,cognome,recapito,eMail) VALUES(?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, cf.getCf());
             ps.setString(2,cf.getNome());
             ps.setString(3,cf.getCognome());
             ps.setString(4,cf.getRecapito());
             ps.setString(5,cf.getEmail());
             if (ps.executeUpdate() != 1) {
-                throw new RuntimeException("INSERT error.");
+                return false;
             }
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
+        return true;
     }
 
     /**

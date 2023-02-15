@@ -3,6 +3,8 @@ package LogicTier;
 import DataTier.AmministratoreDAO;
 import ENTITY.ClienteFornitore;
 import java.util.List;
+import java.util.regex.Pattern;
+
 /**
  * Classe che ci permette d'interfacciare l'utente col sistema, senza dare un accesso diretto sui dati
  * delle risorse. In questo modo non sará mai l'utente a interfacciarsi direttamente con i dati persistenti
@@ -11,8 +13,8 @@ import java.util.List;
 public class GestioneClientiFornitori {
     public static AmministratoreDAO ad = AmministratoreDAO.getSingle_instance();
 
-    public void addClienteFornitore(ClienteFornitore cf){
-        ad.addClienteFornitore(cf);
+    public boolean addClienteFornitore(ClienteFornitore cf){
+        return ad.addClienteFornitore(cf);
     }
 
     public void removeClienteFornitore(String cf){
@@ -34,4 +36,5 @@ public class GestioneClientiFornitori {
     public List<ClienteFornitore> ricercaTuttiCfS(boolean scelta){
         return ad.ricercaTuttiCfS(scelta);
     }
+
 }
