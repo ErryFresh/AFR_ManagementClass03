@@ -1,9 +1,9 @@
 table tr{background-color: white;}
 
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid #787878;
     border-collapse: collapse;
-    margin-left: 500px;
+    border-radius: 10px;
 }
 
 .but {

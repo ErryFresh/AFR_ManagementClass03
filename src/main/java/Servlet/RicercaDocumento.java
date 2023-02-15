@@ -20,7 +20,7 @@ public class RicercaDocumento extends HttpServlet {
         String address = "";
         if(d!=null) {
             request.setAttribute("DocumentoTrovato", d);
-            address="/Documenti.jsp";
+            address="/display.jsp";
         }
         else{
             address="/Documenti";

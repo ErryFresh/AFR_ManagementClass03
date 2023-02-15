@@ -38,7 +38,7 @@
             </li>
 
             <li class="nav-link">
-                <a href="<%= request.getContextPath()%>/home.jsp">
+                <a href="page?dest=home">
                     <i class='bx bxs-home-smile icon'></i>
                     <span class="text nav-text">Home</span>
                 </a>
@@ -51,7 +51,7 @@
             </li>
             <li class="nav-link">
 
-                <a href="Documenti">
+                <a href="page?dest=documenti">
 
                     <i class='bx bxs-file-doc icon' ></i>
                     <span class="text nav-text">Documenti</span>
@@ -64,7 +64,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="Magazzino">
+                <a href="page?dest=magazzino">
                     <i class='bx bxs-component icon'></i>
                     <span class="text nav-text">Magazzino</span>
                 </a>
