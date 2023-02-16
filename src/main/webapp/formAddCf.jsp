@@ -49,7 +49,7 @@
                             <div class="container bg-light">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-success btn-lg">Conferma</button>
-                                    <button type="button" class="btn btn-danger btn-lg" onclick="location.href='clienteFornitore'">Elimina</button>
+                                    <button type="button" class="btn btn-danger btn-lg" onclick="location.href='home.jsp'">Elimina</button>
                                 </div>
                             </div>
                         </form>

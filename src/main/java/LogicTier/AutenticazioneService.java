@@ -7,7 +7,10 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
-
+/**
+ *Classe che permette di effettuare il login di un Dipendente e generazione automatica delle credenziali di quest'ultimo
+ * Ciframento delle password.
+ */
 
 public class AutenticazioneService {
 
@@ -22,11 +25,6 @@ public class AutenticazioneService {
         return sb.toString();
     }
 
-    /**
-     *
-     * @param input password del dipendente da cifrare
-     * @return password cifrata tramita SHA-1
-     */
     private static String cifraPassword(String input)
     {
         try {

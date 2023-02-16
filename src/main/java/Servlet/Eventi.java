@@ -16,6 +16,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
+/**
+ *Servlet per visualizzazione e creazione degli Eventi.
+ */
 @WebServlet(name = "Eventi", value = "/Eventi")
 public class Eventi extends HttpServlet {
     @Override
