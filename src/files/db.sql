@@ -126,3 +126,5 @@ insert into ClienteFornitore values("AAAAAAAAAAAAAAAA","Gino","Pasticcio","32485
                                    ("BBBBBBBBBBBBBBBB","Luko","ConLaK","3297845698","luko@gmail.com");
 insert into Documento values("DA01","Documento d'acquisto","2023-02-11","Acquisto relativo al toner","AAAAAAAAAAAAAAAA","0000000001"),
                             ("DDT01","Documento di trasporto","2023-02-11","Documento che fa riferimento al trasporto di nuove apparecchiature","BBBBBBBBBBBBBBBB","0000000001");
+insert into Prodotto values("PR000001","Porta Penne","portapenne in plastica",4,1,"nessuna");
+insert into Prodotto values("PR000001","Porta Penne","portapenne in plastica",4,1,"nessuna");
