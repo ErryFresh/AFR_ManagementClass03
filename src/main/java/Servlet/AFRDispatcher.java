@@ -37,6 +37,7 @@ public class AFRDispatcher extends HttpServlet {
 
                 request.setAttribute("name","Documenti");
                 request.setAttribute("payload",docPage());
+                request.setAttribute("finder","RicercaDocumento");
                 break;
             case "pagamenti":
                 request.setAttribute("csp",3);
