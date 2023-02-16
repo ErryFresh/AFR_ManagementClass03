@@ -27,10 +27,12 @@
                   <table class="search">
                     <tr>
 
-                      <td colspan="${csp}"><input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search"></td>
-                      <td>
-                        <button type="button" class="btn me-2">Cerca</button>
-                      </td>
+                      <form action="${finder}">
+                        <td colspan="${csp}"><input type="search" name="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search"></td>
+                        <td>
+                          <button type="submit" class="btn me-2">Cerca</button>
+                        </td>
+                      </form>
                     </tr>
                     <tr>
                       <td>
