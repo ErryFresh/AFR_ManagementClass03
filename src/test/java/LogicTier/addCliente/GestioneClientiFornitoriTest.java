@@ -1,14 +1,7 @@
 package LogicTier.addCliente;
-import DataTier.AmministratoreDAO;
 import ENTITY.ClienteFornitore;
 import LogicTier.GestioneClientiFornitori;
-import org.junit.Rule;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-
-import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,12 +11,8 @@ class GestioneClientiFornitoriTest {
 
     private validateClienteFornitore  v = new validateClienteFornitore();
 
-    GestioneClientiFornitoriTest() throws InstantiationException, IllegalAccessException {
-    }
-
-
     @Test
-    void TC_4_1() {
+    public void TC_4_1() {
         String cf = "RSSMRA80A01";
         assertEquals("false",v.validateCF(cf), "Il dipendente riesce ad aggiungere il Cliente/Fornitore");
     }
