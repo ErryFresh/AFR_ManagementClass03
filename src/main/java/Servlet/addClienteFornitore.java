@@ -9,13 +9,11 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Servlet utilizzata per l'aggiunta di un nuovo Cliente/Fornitore tramite il formAddCf.jsp
+ */
 @WebServlet(name = "addClienteFornitore", value = "/addClienteFornitore")
 public class addClienteFornitore extends HttpServlet {
-    public List<ClienteFornitore> returnTutti(){
-        GestioneClientiFornitori cf = new GestioneClientiFornitori();
-        List<ClienteFornitore> listCf = cf.ricercaTuttiCf();
-        return listCf;
-    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -34,8 +32,6 @@ public class addClienteFornitore extends HttpServlet {
             GestioneClientiFornitori gcf = new GestioneClientiFornitori();
             gcf.addClienteFornitore(new ClienteFornitore(cf,nome,cognome,recapito,eMail));
 
-            List<ClienteFornitore> listCf = returnTutti();
-            request.setAttribute("ClientiFornitori",listCf);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/display.jsp");
             dispatcher.forward(request,response);
         }

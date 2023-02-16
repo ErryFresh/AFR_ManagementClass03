@@ -8,6 +8,9 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
+/**
+ * Servlet utile all'aggiunta di un nuovo prodotto effettuato tramite il formProdotto.jsp
+ */
 @WebServlet(name = "AggiungiProdotto", value = "/AggiungiProdotto")
 public class AggiungiProdotto extends HttpServlet {
     @Override

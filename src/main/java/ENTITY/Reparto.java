@@ -1,5 +1,9 @@
 package ENTITY;
 
+/**
+ * Oggetto Reparto, definisce un reparto (gruppo di lavoro) dell'azienda. Un dipendente puó far parte di un singolo reparto
+ * Definito tramite codiceReparto(PK),nome,descrizione.
+ */
 public class Reparto {
     private int codiceReparto;
     private String nome;
