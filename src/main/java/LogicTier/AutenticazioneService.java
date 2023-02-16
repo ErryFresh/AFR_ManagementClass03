@@ -7,15 +7,20 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
+
 /**
- *Classe che permette di effettuare il login di un Dipendente e generazione automatica delle credenziali di quest'ultimo
- * Ciframento delle password.
+ * Classe che ci permette d'interfacciare l'utente col sistema, senza dare un accesso diretto sui dati
+ * delle risorse. In questo modo non sará mai l'utente a interfacciarsi direttamente con i dati persistenti
+ * dell'Autenticazione evitando errori che possano comprometterne la qualitá e garantendo la sicurezza dei dati.
  */
-
 public class AutenticazioneService {
-
     private AutenticazioneDAO ad = AutenticazioneDAO.getSingle_instance();
 
+    /**
+     * il metodo ci permette di generare una password per il dipendente
+     * @param len lunghezza della password
+     * @return password generata automaticamente
+     */
     private static String passwordGenerator(int len) {
         String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%&";
         Random rnd = new Random();
@@ -25,6 +30,11 @@ public class AutenticazioneService {
         return sb.toString();
     }
 
+    /**
+     * il metodo permette di cifrare la password
+     * @param input password del dipendente da cifrare
+     * @return password cifrata tramita SHA-1
+     */
     private static String cifraPassword(String input)
     {
         try {
@@ -47,6 +57,12 @@ public class AutenticazioneService {
         }
     }
 
+    /**
+     * il metodo permette di controllare se può essere effettuato il login sulle credenziali che vengono passate
+     * @param psw password del dipendente
+     * @param eMail email del dipendente
+     * @return dipendente loggato correttamente
+     */
     public Dipendente logIn(String psw, String eMail){
         return AutenticazioneDAO.getSingle_instance().logIn(cifraPassword(psw),eMail);
     }

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Classe che ci permette d'interfacciare l'utente col sistema, senza dare un accesso diretto sui dati
  * delle risorse. In questo modo non sará mai l'utente a interfacciarsi direttamente con i dati persistenti
- * dello Scaffale evitando errori che possano comprometterne la qualitá e grandendo la sicurezza dei dati.
+ * dello Scaffale evitando errori che possano comprometterne la qualitá e garantendo la sicurezza dei dati.
  * L'interfaccia contiene azioni CRUD e due tipi di ricerca per ID e generale.
  */
 public class GestioneScaffale {

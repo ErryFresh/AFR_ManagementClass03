@@ -1,6 +1,6 @@
 function validateNewProduct(){
     var nomeProdotto = document.getElementById('nomeProdotto').value;
-    var idProdottoRGX=/^[a-zA-Z0-9]*$/;
+    var nomeProdottoRGX=/^[a-zA-Z0-9]*$/;
     var descrizioneProdotto = document.getElementById('descrizioneProdotto').value;
     var descrizioneRGX = /^[a-zA-Z0-9' '+,.°*-]*$/;
     var prezzoVendita = document.getElementById('prezzoVendita').value;
@@ -10,7 +10,7 @@ function validateNewProduct(){
     var tipologiaVendita = document.getElementById('tipologiaVendita').value;
     var tipologiaVenditaRGX = /^[a-zA-Z]*$/;
 
-    if(idProdottoRGX.test(nomeProdotto)==false){
+    if(nomeProdottoRGX.test(nomeProdotto)==false){
         alert("Errore formato nome non valido!");
         return false;
     }
