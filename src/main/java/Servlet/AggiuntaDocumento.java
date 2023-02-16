@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Servlet che permette l'aggiunta di un Documento appena creato nel database
+ */
 @WebServlet(name = "AggiuntaDocumento", value = "/AggiuntaDocumento")
 public class AggiuntaDocumento extends HttpServlet {
     @Override

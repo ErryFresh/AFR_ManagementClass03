@@ -86,7 +86,7 @@
                 </a>
             </li>
             <li class="">
-                <a href="<%= request.getContextPath()%>/index.jsp">
+                <a href="<%= request.getContextPath()%>/login">
                     <i class='bx bx-log-out icon'></i>
                     <span class="text nav-text">Logout</span>
                 </a>
