@@ -31,6 +31,8 @@ public class AFRDispatcher extends HttpServlet {
                 request.setAttribute("csp",2);
                 request.setAttribute("extraBtns","");
 
+                request.setAttribute("adder","/AggiuntaDocumento");
+
                 request.setAttribute("name","Documenti");
                 request.setAttribute("payload",docPage());
                 break;

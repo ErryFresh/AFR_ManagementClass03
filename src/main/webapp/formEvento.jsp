@@ -14,7 +14,7 @@
   <% Calendario c = (Calendario) request.getAttribute("cal");%>
 </head>
 <body>
-<%@include file="view/component/NavBar.jsp"%>
+<%@include file="/view/component/NavBar.jsp"%>
 <section class="vh-100 home" style="background: linear-gradient(to right,#1F1F1F,#787878)">
   <div class="container  justify-content-center align-items-center  py-5 h-100 text">
     <div class="row  justify-content-center align-items-center h-100">

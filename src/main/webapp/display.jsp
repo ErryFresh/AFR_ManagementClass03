@@ -44,7 +44,7 @@
                       </td>
 
                       <td>
-                        <button type="button" class="btn me-2">Aggiungi</button>
+                        <button type="button" class="btn me-2" onclick="location.href='<%= request.getContextPath()%>${adder}'">Aggiungi</button>
                       </td>
 
                       <td>
