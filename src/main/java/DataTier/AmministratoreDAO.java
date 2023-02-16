@@ -18,6 +18,11 @@ public class AmministratoreDAO {
     private AmministratoreDAO(){
     }
 
+    /**
+     * Essendo la classe AmministratoreDAO caratterizzata dall'utilizzo del design pattern Singleton, quest'ultima non presenta alcun costruttore pubblico,
+     * infatti non vi è modo d'inizializzare alcun oggetto al di fuori di esso, l'unico modo di accedervi è tramite suddetto metodo
+     * @return un'istanza dell'oggetto AmministratoreDAO per poter rendere accessibili i suoi metodi
+     */
     public static AmministratoreDAO getSingle_instance(){
         if(single_instance ==  null){
             synchronized (AmministratoreDAO.class){
@@ -251,7 +256,7 @@ public class AmministratoreDAO {
      * Metodo per rimuovere un istanza ClienteFornitore dal database
      * @param cf identificatore dell'istanza
      */
-    public static void removeClienteFornitore(String cf){
+    public void removeClienteFornitore(String cf){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("DELETE FROM ClienteFornitore WHERE cf = ?",Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, cf);
@@ -269,7 +274,7 @@ public class AmministratoreDAO {
      * Metodo per aggiornare un istanza nel database
      * @param cf identificatore dell'istanza
      */
-    public static void updateClienteFornitore(ClienteFornitore cf){
+    public void updateClienteFornitore(ClienteFornitore cf){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("UPDATE ClienteFornitore SET nome = ?,cognome = ?,recapito = ?,eMail = ? WHERE cf = ?");
             ps.setString(1,cf.getNome());
@@ -289,7 +294,7 @@ public class AmministratoreDAO {
      * @param id riferito al Pagamento da ricercare
      * @return l'oggetto Pagamento relativo all'id ricercato
      */
-    public static Pagamento ricercaIdP(int id){
+    public Pagamento ricercaIdP(int id){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("SELECT * FROM pagamento WHERE nTransazione = ?");
             ps.setInt(1,id);
@@ -320,7 +325,7 @@ public class AmministratoreDAO {
      * @param id riferimento al Documento da ricercare
      * @return l'oggetto Documento relativo all'id ricercato
      */
-    public static Documento ricercaIdD(String id){
+    public Documento ricercaIdD(String id){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("SELECT * FROM documento WHERE nDocumento = ?");
             ps.setString(1,id);
@@ -347,7 +352,7 @@ public class AmministratoreDAO {
      * @param codiceDoc identificatore dell'istanza
      * @return l'oggetto Prodottodocumento relativo all'id ricercato
      */
-    public static ProdottoDocumento ricercaIdPd(String codiceArt, String codiceDoc){
+    public ProdottoDocumento ricercaIdPd(String codiceArt, String codiceDoc){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("SELECT * FROM prodottodocumento WHERE codiceArt = ? AND codiceDoc = ?");
             ps.setString(1,codiceArt);
@@ -374,7 +379,7 @@ public class AmministratoreDAO {
      * @param id riferimento al Prodottodocumento da ricercare
      * @return l'oggetto ClienteFornitore relativo all'id ricercato
      */
-    public static ClienteFornitore ricercaIdCf(String id){
+    public ClienteFornitore ricercaIdCf(String id){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("SELECT * FROM clientefornitore WHERE cf = ?");
             ps.setString(1,id);
@@ -404,7 +409,7 @@ public class AmministratoreDAO {
             PreparedStatement ps = con.prepareStatement("SELECT nTransazione FROM pagamento");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                list.add(AmministratoreDAO.ricercaIdP(rs.getInt(1)));
+                list.add(AmministratoreDAO.getSingle_instance().ricercaIdP((rs.getInt(1))));
             }
             return list;
         } catch (SQLException e) {
@@ -422,7 +427,7 @@ public class AmministratoreDAO {
             PreparedStatement ps = con.prepareStatement("SELECT nDocumento FROM documento");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                list.add(AmministratoreDAO.ricercaIdD(rs.getString(1)));
+                list.add(AmministratoreDAO.getSingle_instance().ricercaIdD((rs.getString(1))));
             }
             return list;
         } catch (SQLException e) {
@@ -440,7 +445,7 @@ public class AmministratoreDAO {
             PreparedStatement ps = con.prepareStatement("SELECT codiceArt,codiceDoc FROM pagamento");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                list.add(AmministratoreDAO.ricercaIdPd(rs.getString(1),rs.getString(2)));
+                list.add(AmministratoreDAO.getSingle_instance().ricercaIdPd(rs.getString(1),rs.getString(2)));
             }
             return list;
         } catch (SQLException e) {
@@ -458,7 +463,7 @@ public class AmministratoreDAO {
             PreparedStatement ps = con.prepareStatement("SELECT cf FROM clientefornitore");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                list.add(AmministratoreDAO.ricercaIdCf(rs.getString(1)));
+                list.add(AmministratoreDAO.getSingle_instance().ricercaIdCf(rs.getString(1)));
             }
             return list;
         } catch (SQLException e) {

@@ -1,5 +1,9 @@
 package ENTITY;
 
+/**
+ * Oggetto Calendario rappresenta un calendario che viene utilizzato dal dipendente per inserire eventi riguardanti
+ * il reparto. Ha un proprio codice e nome. Si lega al dipendente tramite la matricola e codice del reparto.
+ */
 public class Calendario {
     private String codiceCal;
     private String nome;

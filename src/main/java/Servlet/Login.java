@@ -13,6 +13,10 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * La servlet si rende utile a effettuare il login del Dipendente verificando i parametri eMail e password inseriti
+ * da quest'ultimo inoltre dispone un oggetto cookie per effettuare la disconnessione di quest'ultimo dopo 15 min d'inattività
+ */
 @WebServlet(name = "login", value = "/login")
 public class Login extends HttpServlet {
     @Override

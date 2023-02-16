@@ -1,5 +1,9 @@
 package ENTITY;
 
+/**
+ * Oggetto prodotto descrive un prodotto che é possibile vendere, composto da codiceArt(PK),nome,descrizione,prezzoAcquisto,
+ * prezzoVendita,tipologiaVendita(pezzo,metro-quadro etc.). Un oggetto prodotto viene inserito in un oggetto Scaffale.
+ */
 public class Prodotto {
     private String codiceArt;
     private String nome;

@@ -3,6 +3,10 @@ package ENTITY;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Un oggetto Documento rappresenta un dato che un Dipendente puó salvare nel database, composta da nDocumento(PK), tipo(DDT,preventivo
+ * fattura),emissione,note,cf(cliente) e matricola(dipendente)
+ */
 public class Documento {
     private String nDocumento;
     private String tipo;

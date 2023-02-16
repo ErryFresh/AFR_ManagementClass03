@@ -1,5 +1,9 @@
 package ENTITY;
 
+/**
+ * Un oggetto ClienteFornitore rappresenta un cliente che puó essere Cliente o Fornitore in base al codice inserito
+ * (Codice Fiscale o P. IVA), possiede un nome, cognome, recapito (unico) ed email(unica).
+ */
 public class ClienteFornitore {
     private String cf;
     private String nome;
