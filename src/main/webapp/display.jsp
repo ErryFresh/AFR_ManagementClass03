@@ -3,25 +3,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="view/css/shower.css">
   <title>${name}</title>
   <%
     String payload = request.getAttribute("payload").toString();
   %>
-  <link rel="stylesheet" href="view/css/magEdoc.css">
   <%@include file="view/component/Head.html"%>
-
-
+  <link rel="stylesheet" href="view/css/shower.css">
+  <link rel="stylesheet" href="view/css/magEdoc.css">
 </head>
 <body style="background: #555555">
 <%@include file="/view/component/NavBar.jsp"%>
-<section class="intro">
+<section class=" home intro">
   <div>
-    <div class="bg-image h-100" style="background: linear-gradient(to right bottom,#FF5418,#F9D213);">
+    <div class="bg-image h-100">
     <div class="mask d-flex align-items-center h-100">
       <div class="container">
         <div class="row justify-content-center">

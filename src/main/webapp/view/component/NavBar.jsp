@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="<%= request.getContextPath()%>">
+                <a href="page?dest=pagamenti">
                     <i class='bx bxs-badge-dollar icon' ></i>
                     <span class="text nav-text">Pagamenti</span>
                 </a>
@@ -70,7 +70,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="<%= request.getContextPath()%>/clienteFornitore">
+                <a href="page?dest=cf">
                     <i class='bx bxs-user icon' ></i>
                     <span class="text nav-text">Clienti</span>
                 </a>
