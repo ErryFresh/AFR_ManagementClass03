@@ -10,15 +10,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Servlet utilizzata per l'aggiunta di un nuovo Cliente/Fornitore tramite il formAddCf.jsp
- */
 @WebServlet(name = "addClienteFornitore", value = "/addClienteFornitore")
 public class addClienteFornitore extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String dest = "/formAddCf.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(dest);
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/formAddCf.jsp");
+
         dispatcher.forward(request,response);
     }
 
