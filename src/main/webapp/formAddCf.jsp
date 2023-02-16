@@ -9,11 +9,11 @@
 <html>
 <head>
     <title>Aggiungi Cliente/Fornitore</title>
-    <%@include file="view/component/Head.html"%>
-    <link rel="stylesheet" href="view/css/magazzinoEDocumenti.css">
+    <%@include file="/view/component/Head.html"%>
+    <link rel="stylesheet" href="view/css/magEdoc.css">
 </head>
 <body>
-<%@include file="view/component/NavBar.jsp"%>
+<%@include file="/view/component/NavBar.jsp"%>
 <section class="home">
     <div class="container-fluid py-5 h-100 text">
         <div class="row  justify-content-center align-items-center h-100">

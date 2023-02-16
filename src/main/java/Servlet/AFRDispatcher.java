@@ -39,6 +39,7 @@ public class AFRDispatcher extends HttpServlet {
                 request.setAttribute("csp",3);
                 request.setAttribute("extraBtns","<td><button type=\"button\" class=\"btn me-2\">Visualizza Pagamenti</button></td>");
 
+
                 request.setAttribute("name","Pagamenti");
                 request.setAttribute("payload",payPage());
                 break;
@@ -57,6 +58,8 @@ public class AFRDispatcher extends HttpServlet {
                 request.setAttribute("csp",4);
                 request.setAttribute("extraBtns","<td><button type=\"button\" class=\"btn me-2\" onclick=\"location.href='page?dest=cliente'\">Visualizza Clienti</button></td><td><button type=\"button\" class=\"btn me-2\" onclick=\"location.href='page?dest=fornitore'\">Visualizza Fornitori</button></td>");
 
+                request.setAttribute("adder","/addClienteFornitore");
+
                 request.setAttribute("name","Cliente/Fornitore");
                 request.setAttribute("payload",cfPage(1));
                 break;
@@ -64,12 +67,16 @@ public class AFRDispatcher extends HttpServlet {
                 request.setAttribute("csp",4);
                 request.setAttribute("extraBtns","<td><button type=\"button\" class=\"btn me-2\" onclick=\"location.href='page?dest=fornitore'\">Visualizza Fornitori</button></td><td><button type=\"button\" class=\"btn me-2\" onclick=\"location.href='page?dest=cf'\">Visualizza Tutti</button></td>");
 
+                request.setAttribute("adder","/addClienteFornitore");
+
                 request.setAttribute("name","Clienti");
                 request.setAttribute("payload",cfPage(2));
                 break;
             case "fornitore":
                 request.setAttribute("csp",4);
                 request.setAttribute("extraBtns","<td><button type=\"button\" class=\"btn me-2\" onclick=\"location.href='page?dest=cliente'\">Visualizza Clienti</button></td><td><button type=\"button\" class=\"btn me-2\" onclick=\"location.href='page?dest=cf'\">Visualizza Tutti</button></td>");
+
+                request.setAttribute("adder","/addClienteFornitore");
 
                 request.setAttribute("name","Fornitori");
                 request.setAttribute("payload",cfPage(3));
