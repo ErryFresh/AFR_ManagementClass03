@@ -357,10 +357,10 @@ public class AmministratoreDAO {
                 ProdottoDocumento pd = new ProdottoDocumento();
                 pd.setCodiceArt(codiceArt);
                 pd.setCodiceDoc(codiceDoc);
-                pd.setQta(rs.getInt(3));
-                pd.setLunghezza(rs.getDouble(4));
-                pd.setLarghezza(rs.getDouble(5));
-                pd.setAltezza(rs.getDouble(6));
+                pd.setQta(rs.getInt(4));
+                pd.setLunghezza(rs.getDouble(5));
+                pd.setLarghezza(rs.getDouble(6));
+                pd.setAltezza(rs.getDouble(7));
                 return pd;
             }
             return null;
