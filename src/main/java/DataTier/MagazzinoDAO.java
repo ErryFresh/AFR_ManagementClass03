@@ -18,7 +18,12 @@ public class MagazzinoDAO {
     private MagazzinoDAO(){}
 
     private static MagazzinoDAO single_instance = null;
-    public static MagazzinoDAO getInstance(){
+    /**
+     * Essendo la classe MagazzinoDAO caratterizzata dall'utilizzo del design pattern Singleton, quest'ultima non presenta alcun costruttore pubblico,
+     * infatti non vi è modo d'inizializzare alcun oggetto al di fuori di esso, l'unico modo di accedervi è tramite suddetto metodo
+     * @return un'istanza dell'oggetto MagazzinoDAO per poter rendere accessibili i suoi metodi
+     */
+    public static MagazzinoDAO getSingle_instance(){
         if(single_instance == null){
             synchronized (MagazzinoDAO.class){
                 if(single_instance ==  null)
@@ -280,7 +285,7 @@ public class MagazzinoDAO {
      * @param id riferito al prodotto che si vuole ricercare
      * @return l'oggetto Prodotto relativo alla ricerca tramite id
      */
-    public static Prodotto ricercaIdP(String id){
+    public Prodotto ricercaIdP(String id){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM Prodotto WHERE codiceArt = ?");
             ps.setString(1, id);
@@ -306,7 +311,7 @@ public class MagazzinoDAO {
      * @param id riferito allo scaffale che si vuole ricercare
      * @return l'oggetto Scaffale relativo alla ricerca tramite id
      */
-    public static Scaffale ricercaIdS(int id){
+    public Scaffale ricercaIdS(int id){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM scaffale WHERE codiceSc = ?");
             ps.setInt(1, id);
@@ -332,7 +337,7 @@ public class MagazzinoDAO {
      * @param id riferito al Magazzino che si vuole ricercare
      * @return l'oggetto Magazzino relativo alla ricerca tramite id
      */
-    public static Magazzino ricercaIdM(int id){
+    public Magazzino ricercaIdM(int id){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM magazzino WHERE codiceMag= ?");
             ps.setInt(1, id);
@@ -356,7 +361,7 @@ public class MagazzinoDAO {
      * @param idS id relativo allo scaffale
      * @return l'oggetto Prodottoscaffale relativo alla ricerca tramite i due id
      */
-    public static ProdottoScaffale ricercaIdPs(String idP,int idS){
+    public ProdottoScaffale ricercaIdPs(String idP,int idS){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM prodottoscaffale WHERE codiceArt = ? AND codiceSc = ?");
             ps.setString(1, idP);
@@ -388,7 +393,7 @@ public class MagazzinoDAO {
             PreparedStatement ps = con.prepareStatement("SELECT codiceArt FROM prodotto");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                list.add(MagazzinoDAO.ricercaIdP(rs.getString(1)));
+                list.add(MagazzinoDAO.getSingle_instance().ricercaIdP(rs.getString(1)));
             }
             return list;
         } catch (SQLException e) {
@@ -424,7 +429,7 @@ public class MagazzinoDAO {
             PreparedStatement ps = con.prepareStatement("SELECT codiceMag FROM magazzino");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                list.add(MagazzinoDAO.ricercaIdM(rs.getInt(1)));
+                list.add(MagazzinoDAO.getSingle_instance().ricercaIdM(rs.getInt(1)));
             }
             return list;
         } catch (SQLException e) {
@@ -442,7 +447,7 @@ public class MagazzinoDAO {
             PreparedStatement ps = con.prepareStatement("SELECT codiceArt AND codiceSc FROM evento");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                list.add(MagazzinoDAO.ricercaIdPs(rs.getString(1),rs.getInt(2)));
+                list.add(MagazzinoDAO.getSingle_instance().ricercaIdPs(rs.getString(1),rs.getInt(2)));
             }
             return list;
         } catch (SQLException e) {

@@ -19,6 +19,11 @@ import java.util.List;
 public class DipendenteDAO {
     private DipendenteDAO(){}
     private static DipendenteDAO single_instance = null;
+    /**
+     * Essendo la classe DipendenteDAO caratterizzata dall'utilizzo del design pattern Singleton, quest'ultima non presenta alcun costruttore pubblico,
+     * infatti non vi è modo d'inizializzare alcun oggetto al di fuori di esso, l'unico modo di accedervi è tramite suddetto metodo
+     * @return un'istanza dell'oggetto DipendenteDAO per poter rendere accessibili i suoi metodi
+     */
     public static DipendenteDAO getInstance(){
         if(single_instance == null){
             synchronized (DipendenteDAO.class){
@@ -34,7 +39,7 @@ public class DipendenteDAO {
      * Il metodo ci permette di aggiungere un nuovo dipendente al database.
      * @param d Dipendete da salvare all'interno del database.
      */
-    public static void addDipendenti(Dipendente d){
+    public void addDipendenti(Dipendente d){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
                     "INSERT INTO dipendente (matricola,password,cf,nome,cognome,recapito,eMail,posizione,codiceRep) VALUES(?,?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -61,7 +66,7 @@ public class DipendenteDAO {
      *  Il metodo ci permette di rimuovere un dipendente da dentro al database
      * @param matricola ci permette di trovare il dipendente da eliminare.
      */
-    public static void removeDipendente(String matricola){
+    public void removeDipendente(String matricola){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement(
                     "DELETE FROM dipendente WHERE matricola = ?",Statement.RETURN_GENERATED_KEYS);
@@ -80,7 +85,7 @@ public class DipendenteDAO {
      *Il metodo ci permette di aggiornare un dipendente all'interno del database
      * @param d Dipendente da aggiornare all'interno del database.
      */
-    public static void updateDipendente(Dipendente d){
+    public void updateDipendente(Dipendente d){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("UPDATE dipendente SET password = ?,cf = ?,nome = ?,cognome = ?,recapito = ?,eMail = ?,posizione = ?,codiceRep = ? WHERE matricola = ?");
             ps.setString(1, d.getPassword());
@@ -102,7 +107,7 @@ public class DipendenteDAO {
      *Il metodo aggiunge una nuova istanza di Reparto al database
      * @param r Reparto da aggiungere al database
      */
-    public static void addReparto(Reparto r){
+    public void addReparto(Reparto r){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
                     "INSERT INTO reparto (codiceRep,nome,descrizione) VALUES(?,?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -123,7 +128,7 @@ public class DipendenteDAO {
      * Il metodo rimuove un istanza di Reparto all'interno del database
      * @param codiceRep ci permette di trovare il reparto da eliminare
      */
-    public static void removeReparto(int codiceRep){
+    public void removeReparto(int codiceRep){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("DELETE FROM reparto WHERE codiceRep = ?",Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1,codiceRep);
@@ -141,7 +146,7 @@ public class DipendenteDAO {
      * Il metodo si occupa di aggiornare un istanza di Reparto nel database
      * @param r nuove informazioni del Reparto da aggiornare
      */
-    public static void updateReparto(Reparto r){
+    public void updateReparto(Reparto r){
        try(Connection con = ConPool.getConnection()){
            PreparedStatement ps = con.prepareStatement("UPDATE reparto SET nome = ?,descrizione = ? WHERE codiceRep = ?");
            ps.setString(1,r.getNome());
@@ -157,7 +162,7 @@ public class DipendenteDAO {
      *Il metodo permette l'aggiunta d'istanze Calendario al database
      * @param c Calendario da aggiungere al database
      */
-    public static void addCalendario(Calendario c){
+    public void addCalendario(Calendario c){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("INSERT INTO calendario(codiceCal,nome,codiceRep,matricolaDip) VALUES (?,?,?,?)",Statement.RETURN_GENERATED_KEYS);
             ps.setString(1,c.getCodiceCal());
@@ -178,7 +183,7 @@ public class DipendenteDAO {
      * Il metodo ci permette la rimozione di un istanza Calendario nel database
      * @param codiceCal stringa che utilizziamo per cercare il calendario da rimuovere
      */
-    public static void removeCalendario(String codiceCal){
+    public void removeCalendario(String codiceCal){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("DELETE FROM calendario WHERE codiceCal = ?",Statement.RETURN_GENERATED_KEYS);
             ps.setString(1,codiceCal);
@@ -196,7 +201,7 @@ public class DipendenteDAO {
      * Il metodo aggiorna un istanza di Calendario nel database
      * @param c Oggetto calendario da cui prendiamo tutte le informazioni da aggiornare
      */
-    public static void updateCalendario(Calendario c){
+    public void updateCalendario(Calendario c){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("UPDATE calendario SET nome = ?,codiceRep = ?,matricolaDip = ? WHERE codiceCal = ? ");
             ps.setString(1,c.getNome());
@@ -273,7 +278,7 @@ public class DipendenteDAO {
      * @param id riferito al dipendente da ricercare
      * @return l'oggetto Dipendente relativo all'id ricercato
      */
-    public static Dipendente ricercaIdD(String id) {
+    public Dipendente ricercaIdD(String id) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM dipendente WHERE matricola = ?");
             ps.setString(1, id);
@@ -304,7 +309,7 @@ public class DipendenteDAO {
      * @param id utile nella ricerca del dipendente nel database
      * @return dipendente senza il parametro password
      */
-    public static Dipendente rimuoviPSW(String id) {
+    public Dipendente rimuoviPSW(String id) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM dipendente WHERE matricola = ?");
             ps.setString(1, id);
@@ -334,7 +339,7 @@ public class DipendenteDAO {
      * @param id riferito al reparto da ricercare
      * @return l'oggetto Reparto relativo all'id ricercato
      */
-    public static Reparto ricercaIdR(int id){
+    public Reparto ricercaIdR(int id){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("SELECT * FROM reparto WHERE codiceRep = ?");
             ps.setInt(1,id);
@@ -354,11 +359,11 @@ public class DipendenteDAO {
     }
 
     /***
-     *Il metodo ricerca un instanza Calendario in base all'id inserito
+     *Il metodo ricerca un istanza Calendario in base all'id inserito
      * @param id riferito al reparto da ricercare
      * @return l'oggetto Calendario relativo all'id ricercato
      */
-    public static Calendario ricercaIdC(String id){
+    public Calendario ricercaIdC(String id){
        try(Connection con = ConPool.getConnection()){
            PreparedStatement ps = con.prepareStatement("SELECT * FROM calendario WHERE codiceCal = ?");
            ps.setString(1, id);
@@ -383,7 +388,7 @@ public class DipendenteDAO {
      * @param id riferito al reparto da ricercare
      * @return l'oggetto Evento relativo all'id ricercato
      */
-    public static EventoCalendario ricercaIdE(String id){
+    public EventoCalendario ricercaIdE(String id){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("SELECT * FROM evento WHERE codiceEv = ?");
             ps.setString(1,id);
@@ -415,7 +420,7 @@ public class DipendenteDAO {
             PreparedStatement ps = con.prepareStatement("SELECT matricola FROM dipendente");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Dipendente d = DipendenteDAO.rimuoviPSW(rs.getString(1));
+                Dipendente d = DipendenteDAO.getInstance().rimuoviPSW(rs.getString(1));
                 list.add(d);
             }
             return list;
@@ -434,7 +439,7 @@ public class DipendenteDAO {
            PreparedStatement ps = con.prepareStatement("SELECT codiceRep FROM reparto");
            ResultSet rs = ps.executeQuery();
            while (rs.next()){
-               list.add(DipendenteDAO.ricercaIdR(rs.getInt(1)));
+               list.add(DipendenteDAO.getInstance().ricercaIdR(rs.getInt(1)));
            }
            return list;
        } catch (SQLException e) {
@@ -452,7 +457,7 @@ public class DipendenteDAO {
            PreparedStatement ps = con.prepareStatement("SELECT codiceCal FROM calendario");
            ResultSet rs = ps.executeQuery();
            while(rs.next()){
-               list.add(DipendenteDAO.ricercaIdC(rs.getString(1)));
+               list.add(DipendenteDAO.getInstance().ricercaIdC(rs.getString(1)));
            }
            return list;
        } catch (SQLException e) {
@@ -470,7 +475,7 @@ public class DipendenteDAO {
             PreparedStatement ps = con.prepareStatement("SELECT codiceEv FROM evento");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                list.add(DipendenteDAO.ricercaIdE(rs.getString(1)));
+                list.add(DipendenteDAO.getInstance().ricercaIdE(rs.getString(1)));
             }
             return list;
         } catch (SQLException e) {

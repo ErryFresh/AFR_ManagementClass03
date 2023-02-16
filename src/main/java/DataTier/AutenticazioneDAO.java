@@ -15,7 +15,11 @@ public class AutenticazioneDAO {
     private static AutenticazioneDAO single_instance = null;
 
     private AutenticazioneDAO(){}
-
+    /**
+     * Essendo la classe AutenticazioneDAO caratterizzata dall'utilizzo del design pattern Singleton, quest'ultima non presenta alcun costruttore pubblico,
+     * infatti non vi è modo d'inizializzare alcun oggetto al di fuori di esso, l'unico modo di accedervi è tramite suddetto metodo
+     * @return un'istanza dell'oggetto AutenticazioneDAO per poter rendere accessibili i suoi metodi
+     */
     public static AutenticazioneDAO getSingle_instance() {
         if (single_instance == null)
             synchronized (AutenticazioneDAO.class){
@@ -63,6 +67,6 @@ public class AutenticazioneDAO {
      * @param d Dipendente appena creato dal sistema con i dati parzialmente inseriti dall'utente e la password generata dal sistema;
      */
     public void addDipendente(Dipendente d) {
-        DipendenteDAO.addDipendenti(d);
+        DipendenteDAO.getInstance().addDipendenti(d);
     }
 }
