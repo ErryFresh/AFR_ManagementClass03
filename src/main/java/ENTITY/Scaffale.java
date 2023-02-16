@@ -1,5 +1,9 @@
 package ENTITY;
 
+/**
+ * Oggetto Scaffale definito con codiceScaffale(PK), nome,descrizione,codiceMagazzino(magazzino in cui é situato), surOccupata e
+ * surDisponibile.
+ */
 public class Scaffale {
     private int codiceScaffale;
     private String nome;

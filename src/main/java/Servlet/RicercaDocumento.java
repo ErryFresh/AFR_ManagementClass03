@@ -10,6 +10,9 @@ import javax.sound.midi.SysexMessage;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Servlet utile alla ricerca di un documento all'interno del database tramite l'utilizzo di filtri e id.
+ */
 @WebServlet(name = "RicercaDocumento", value = "/RicercaDocumento")
 public class RicercaDocumento extends HttpServlet {
     @Override

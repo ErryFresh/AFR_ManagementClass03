@@ -1,5 +1,9 @@
 package ENTITY;
 
+/**
+ * Oggetto che ci permette di tener conto del legame tra l'oggetto Documento e l'oggetto Prodotti che vengono citati in quest'ultimo.
+ * L'oggetto esiste in quanto é possibile aggiungere informazioni come qta,lunghezza,larghezza,altezza del prodotto all'interno del documento.
+ */
 public class ProdottoDocumento {
     private String codiceArt;
     private String codiceDoc;

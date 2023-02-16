@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Servlet utile allo smistamento delle pagine che mostrano una lista con i relativi
+ * aggiunti/modifica e ricerca come Cliente/Fornitore,Documento,Magazzino ecc.
+ */
 @WebServlet(name = "AFRDispatcher", value = "/page")
 public class AFRDispatcher extends HttpServlet {
     @Override

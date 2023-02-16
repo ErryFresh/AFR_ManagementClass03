@@ -1,5 +1,8 @@
 package ENTITY;
 
+/**
+ * Oggetto Magazzino composto da codiceMagazzino(PK),indirizzo,nScaffali. Conterrá gli scaffali.
+ */
 public class Magazzino {
     private int codiceMagazzino;
     private String indirizzo;

@@ -2,6 +2,10 @@ package ENTITY;
 
 import java.util.Date;
 
+/**
+ * Oggetto pagamento composto da nTransazione(PK), tipo,nAssegno,causale,importo,saldato(booleano per capire se il pagamento
+ * é saldato o meno),emissione,scadenza,beneficiario(Cliente),emittente(Dipendente). Un pagamento viene inserito da un Dipendente
+ */
 public class Pagamento {
     private int nTransazione;
     private String tipo;

@@ -1,5 +1,9 @@
 package ENTITY;
 
+/**
+ * Oggetto ProdottoScaffale, serve per tener conto della locazione del Prodotto in quale Scaffale e stipato definendo attributi come
+ * qta,lunghezza,larghezza, altezza del prodotto.
+ */
 public class ProdottoScaffale {
 
     private int prodottoScaf;

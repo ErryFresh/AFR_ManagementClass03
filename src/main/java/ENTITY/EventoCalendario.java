@@ -2,6 +2,10 @@ package ENTITY;
 
 import java.util.Date;
 
+/**
+ * Oggetto utile all'implementazione del Calendario, si tratta dell'evento che contiene. Composto da un codiceEvento (PK),nome,descrizione
+ * data,matricola(dipendente),codiceCal(Calendario).
+ */
 public class EventoCalendario {
     private String codiceEvento;
     private String nome;

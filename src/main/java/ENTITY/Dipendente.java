@@ -1,5 +1,10 @@
 package ENTITY;
 //CREDENZIALI DIPENDENTE PROVA: email- a@b.it psw- prova
+
+/**
+ * Un oggetto Dipendente rappresenta l'utente finale che utilizzerá l'applicativo é composto da una matricola (PK auto-generata), password
+ * codice fiscale (unico),nome,cognome,recapito(unico),email(unico),posizione,codice reparto.
+ */
 public class Dipendente {
     private String matricola;
     private String password;
