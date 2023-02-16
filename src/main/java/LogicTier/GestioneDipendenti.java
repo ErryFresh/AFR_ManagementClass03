@@ -14,7 +14,7 @@ public class GestioneDipendenti {
     public GestioneDipendenti() {
     }
 
-    public static DipendenteDAO dp = DipendenteDAO.getInstance();
+    public static DipendenteDAO dp = DipendenteDAO.getSingle_instance();
 
     public void addDipendente(Dipendente d){
         dp.addDipendenti(d);

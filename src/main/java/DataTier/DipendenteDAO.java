@@ -24,7 +24,7 @@ public class DipendenteDAO {
      * infatti non vi è modo d'inizializzare alcun oggetto al di fuori di esso, l'unico modo di accedervi è tramite suddetto metodo
      * @return un'istanza dell'oggetto DipendenteDAO per poter rendere accessibili i suoi metodi
      */
-    public static DipendenteDAO getInstance(){
+    public static DipendenteDAO getSingle_instance(){
         if(single_instance == null){
             synchronized (DipendenteDAO.class){
                 if(single_instance ==  null)
@@ -420,7 +420,7 @@ public class DipendenteDAO {
             PreparedStatement ps = con.prepareStatement("SELECT matricola FROM dipendente");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Dipendente d = DipendenteDAO.getInstance().rimuoviPSW(rs.getString(1));
+                Dipendente d = DipendenteDAO.getSingle_instance().rimuoviPSW(rs.getString(1));
                 list.add(d);
             }
             return list;
@@ -439,7 +439,7 @@ public class DipendenteDAO {
            PreparedStatement ps = con.prepareStatement("SELECT codiceRep FROM reparto");
            ResultSet rs = ps.executeQuery();
            while (rs.next()){
-               list.add(DipendenteDAO.getInstance().ricercaIdR(rs.getInt(1)));
+               list.add(DipendenteDAO.getSingle_instance().ricercaIdR(rs.getInt(1)));
            }
            return list;
        } catch (SQLException e) {
@@ -457,7 +457,7 @@ public class DipendenteDAO {
            PreparedStatement ps = con.prepareStatement("SELECT codiceCal FROM calendario");
            ResultSet rs = ps.executeQuery();
            while(rs.next()){
-               list.add(DipendenteDAO.getInstance().ricercaIdC(rs.getString(1)));
+               list.add(DipendenteDAO.getSingle_instance().ricercaIdC(rs.getString(1)));
            }
            return list;
        } catch (SQLException e) {
@@ -475,7 +475,7 @@ public class DipendenteDAO {
             PreparedStatement ps = con.prepareStatement("SELECT codiceEv FROM evento");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                list.add(DipendenteDAO.getInstance().ricercaIdE(rs.getString(1)));
+                list.add(DipendenteDAO.getSingle_instance().ricercaIdE(rs.getString(1)));
             }
             return list;
         } catch (SQLException e) {

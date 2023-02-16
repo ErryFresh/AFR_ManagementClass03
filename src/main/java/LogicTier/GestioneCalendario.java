@@ -18,7 +18,7 @@ public class GestioneCalendario {
 
     public GestioneCalendario() {
     }
-    public static DipendenteDAO dp = DipendenteDAO.getInstance();
+    public static DipendenteDAO dp = DipendenteDAO.getSingle_instance();
 
     public void addCalendario(Calendario c){
         dp.addCalendario(c);

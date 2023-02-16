@@ -55,7 +55,7 @@ public class AutenticazioneService {
         Random r = new Random();
         boolean flag=false;
 
-        DipendenteDAO dd = DipendenteDAO.getInstance();
+        DipendenteDAO dd = DipendenteDAO.getSingle_instance();
 
         String matricola;
         long mat;

@@ -10,7 +10,7 @@ import java.util.List;
  * L'interfaccia contiene azioni CRUD e due tipi di ricerca per ID e generale.
  */
 public class GestioneReparto {
-    public static DipendenteDAO dp = DipendenteDAO.getInstance();
+    public static DipendenteDAO dp = DipendenteDAO.getSingle_instance();
 
     public void addReparto(Reparto r){
         dp.addReparto(r);
