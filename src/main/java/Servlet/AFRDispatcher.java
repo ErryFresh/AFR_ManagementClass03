@@ -33,7 +33,6 @@ public class AFRDispatcher extends HttpServlet {
             case "documenti":
                 request.setAttribute("csp",2);
                 request.setAttribute("extraBtns","");
-
                 request.setAttribute("adder","/AggiuntaDocumento");
 
                 request.setAttribute("name","Documenti");
