@@ -9,7 +9,7 @@ import java.util.List;
 
 
 /**
- * Il seguente DAO incorpora Magazzino,Prodotto,Scaffale,ProdottoScaffale, è possibile effettuare query relative all'aggiunta, modifica e cancellazione
+ * Il seguente DAO incorpora Magazzino,Prodotto,Scaffale,ProdottoScaffale, e' possibile effettuare query relative all'aggiunta, modifica e cancellazione
  * degli oggetti all'interno del database
  */
 @Singleton

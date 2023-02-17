@@ -10,8 +10,8 @@ import java.util.Random;
 
 /**
  * Classe che ci permette d'interfacciare l'utente col sistema, senza dare un accesso diretto sui dati
- * delle risorse. In questo modo non sará mai l'utente a interfacciarsi direttamente con i dati persistenti
- * dell'Autenticazione evitando errori che possano comprometterne la qualitá e garantendo la sicurezza dei dati.
+ * delle risorse. In questo modo non sara' mai l'utente a interfacciarsi direttamente con i dati persistenti
+ * dell'Autenticazione evitando errori che possano comprometterne la qualita' e garantendo la sicurezza dei dati.
  */
 public class AutenticazioneService {
     private AutenticazioneDAO ad = AutenticazioneDAO.getSingle_instance();

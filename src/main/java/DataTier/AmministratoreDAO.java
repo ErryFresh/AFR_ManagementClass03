@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Il seguente DAO incorpora Pagamento, Documento, ProdottoDocumento ed ClienteFornitore, si occupa di effettuare query e aggiunta, rimozione, aggiornamenti
- *  * dei seguenti oggetti nel nostro database.
+ * dei seguenti oggetti nel nostro database.
  */
 @Singleton
 public class AmministratoreDAO {
