@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * La seguente servlet permette l'aggiunta di un nuovo Cliente/Forniore all'interno del database utilizzando il formAddCf.jsp
+ */
 @WebServlet(name = "addClienteFornitore", value = "/addClienteFornitore")
 public class addClienteFornitore extends HttpServlet {
 

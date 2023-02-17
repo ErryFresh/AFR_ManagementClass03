@@ -104,6 +104,7 @@ public class AggiuntaDocumento extends HttpServlet {
         request.setAttribute("adder","/AggiuntaDocumento");
 
         request.setAttribute("name","Documenti");
+        request.setAttribute("finder","RicercaDocumento");
         request.setAttribute("payload",docPage());
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/display.jsp");

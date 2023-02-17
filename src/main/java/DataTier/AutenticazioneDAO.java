@@ -7,7 +7,7 @@ import java.sql.*;
 
 
 /**
- * Classe che permette di effettuare l'autenticazione dell'utente e inserimento all'interno del database dell'utente appena registrato
+ * Il seguente DAO incorpora Dipendente, si occupa di effettuare login, registrazione dipendente e generazione credenziali (matricola e password).
  */
 @Singleton
 public class AutenticazioneDAO {
@@ -67,6 +67,6 @@ public class AutenticazioneDAO {
      * @param d Dipendente appena creato dal sistema con i dati parzialmente inseriti dall'utente e la password generata dal sistema;
      */
     public void addDipendente(Dipendente d) {
-        DipendenteDAO.getInstance().addDipendenti(d);
+        DipendenteDAO.getSingle_instance().addDipendenti(d);
     }
 }

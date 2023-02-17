@@ -48,13 +48,19 @@ public class AFRDispatcher extends HttpServlet {
                 request.setAttribute("payload",payPage());
                 break;
             case "magazzino":
-                request.setAttribute("csp",3);
-                request.setAttribute("extraBtns","<td><button type=\"button\" class=\"btn me-2\">Visualizza Prodotti</button></td>");
-
+                request.setAttribute("csp",4);
+                request.setAttribute("extraBtns","<td><button type=\"button\" class=\"btn me-2\" onclick=\"location.href='page?dest=prodotti'\">Visualizza Prodotti</button></td><td><button type=\"button\" class=\"btn me-2\" onclick=\"location.href='formProdotto.jsp'\">Aggiungi Prodotto</button></td>");
+                request.setAttribute("adder","/formProdotto.jsp");
                 request.setAttribute("name","Magazzino");
                 request.setAttribute("payload",magPage());
                 break;
-
+            case "prodotti":
+                request.setAttribute("csp",4);
+                request.setAttribute("extraBtns","<td><button type=\"button\" class=\"btn me-2\" onclick=\"location.href='page?dest=magazzino'\">Visualizza Magazzino</button></td>");
+                request.setAttribute("adder","/formProdotto.jsp");
+                request.setAttribute("name","Prodotti");
+                request.setAttribute("payload",msgProduct());
+                break;
             case "scaffale":
                 break;
 
@@ -291,4 +297,52 @@ public class AFRDispatcher extends HttpServlet {
 
         return toRet;
     }
+
+
+    private String msgProduct(){
+        String toRet="";
+
+        GestioneProdotto p = new GestioneProdotto();
+        List<Prodotto> scaf = new ArrayList<Prodotto>();
+        scaf = p.ricercaTuttiP();
+
+
+
+        toRet+="<table class=\"table table-borderless mb-0\">";
+        toRet+="<thead>";
+        toRet+="<tr>";
+        toRet+="<th scope=\"col\">";
+        toRet+="</th>";
+        toRet+="<th scope=\"col\">Seleziona</th>";
+        toRet+="<th scope=\"col\">Codice articolo</th>";
+        toRet+="<th scope=\"col\">Nome</th>";
+        toRet+="<th scope=\"col\">Descrizione</th>";
+        toRet+="<th scope=\"col\">Prezzo acquisto</th>";
+        toRet+="<th scope=\"col\">Prezzo vendita</th>";
+        toRet+="<th scope=\"col\">Tipologia di vendita</th>";
+        toRet+="</tr>";
+        toRet+="</thead>";
+        toRet+="<tbody>";
+
+        if(scaf!=null){
+            for(Prodotto d:scaf) {
+                toRet+="<tr>";
+                toRet+="<th scope=\"row\">";
+                toRet+="<td > <input type=\"checkbox\" name=\"docSelector\" value=\""+d.getCodiceArt()+"\"> </td>";
+                toRet+="<td > "+d.getCodiceArt()+" </td>";
+                toRet+="<td > "+d.getNome()+" </td>";
+                toRet+="<td > "+d.getDescrizione()+" </td>";
+                toRet+="<td > "+d.getPrezzoAcquisto()+" </td>";
+                toRet+="<td > "+d.getPrezzoVendita()+" </td>";
+                toRet+="<td > "+d.getTipologiaVendita()+" </td>";
+                toRet+="</th>";
+                toRet+="</tr>";
+            }
+        }
+        toRet+="</tbody>";
+        toRet+="</table>";
+
+        return toRet;
+    }
+
 }

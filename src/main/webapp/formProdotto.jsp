@@ -44,32 +44,13 @@
                            </div>
                            <div class="col">
                                <h3>Tipologia Vendita</h3>
-                               <input name="tipologiaVendita" id="tipologiaVendita" class="form-control  form-control-lg" type="text" required>
-                           </div>
-                           <div class="row pt-1">
-                               <div class="col-6 mb-3">
-                                   <h3>Magazzino</h3>
-                                   <div class="form-group">
-                                       <select name="Magazzino" class="form-control form-control-lg" required>
-                                           <option value="Amsterdam">VAFFANCULO</option>
-                                           <option value="Washington">VAFFANCULO</option>
-                                           <option value="Sydney">VAFFANCULO</option>
-                                           <option value="Beijing">VAFFANCULO</option>
-                                           <option value="Cairo">VAFFANCULO</option>
-                                       </select>
-                                   </div>
-                               </div>
-                               <div class="col-6 mb-3">
-                                   <h3>Scaffale</h3>
-                                   <div class="form-group">
-                                       <select name="Scaffale" class="form-control form-control-lg" required>
-                                           <option value="Amsterdam">Amsterdam</option>
-                                           <option value="Washington">Washington</option>
-                                           <option value="Sydney">Sydney</option>
-                                           <option value="Beijing">Beijing</option>
-                                           <option value="Cairo">Cairo</option>
-                                       </select>
-                                   </div>
+                               <div class="form-group">
+                                   <select name="tipologiaVendita" class="form-control form-control-lg" required>
+                                       <option value="pz">Pezzo</option>
+                                       <option value="mq">Metro Quadro</option>
+                                       <option value="ml">Metro Lineare</option>
+                                       <option value="kg">Kilo Grammo</option>
+                                   </select>
                                </div>
                            </div>
                            <div class="container bg-light">
