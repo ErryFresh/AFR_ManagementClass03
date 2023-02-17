@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"DataTier"},{"l":"ENTITY"},{"l":"LogicTier"},{"l":"LogicTier.addCliente"},{"l":"LogicTier.addDocumento"},{"l":"LogicTier.addProdotto"},{"l":"Servlet"}];updateSearchResults();
