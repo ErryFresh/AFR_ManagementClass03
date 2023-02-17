@@ -31,7 +31,7 @@ CREATE TABLE Prodotto(
 );
 
 CREATE TABLE ProdottoScaffale(
-                                codProdScaf INT AUTO_INCREMENT PRIMARY KEY,
+                                 codProdScaf INT AUTO_INCREMENT PRIMARY KEY,
                                  codiceArt CHAR(8),
                                  codiceSc INT,
                                  quantita INT NOT NULL,

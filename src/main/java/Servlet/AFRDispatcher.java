@@ -158,7 +158,7 @@ public class AFRDispatcher extends HttpServlet {
     private String magPage(){
         String toRet="";
 
-        GestioneMagazzino mag = new GestioneMagazzino();
+        GestioneScaffale mag = new GestioneScaffale();
         List<Scaffale> scaf = mag.ricercaTuttiS();
 
         toRet+="<table class=\"table table-borderless mb-0\">";

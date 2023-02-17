@@ -27,6 +27,4 @@ public class GestioneMagazzino {
     public Magazzino ricercaIdC(int id){return m.ricercaIdM(id);}
 
     public List<Magazzino> ricercaTuttiM(){return m.ricercaTuttiM();}
-
-    public List<Scaffale> ricercaTuttiS(){return m.ricercaTuttiS();}
 }
